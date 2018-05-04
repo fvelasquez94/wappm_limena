@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ConfigEmail>
+  <Config>
+    <Id>1</Id>
+    <Email>f.velasquez@limenainc.net</Email>
+    <Password>Fr@Nc!sC0@2018</Password>
+    <AllDays>1</AllDays>
+    <Hour>7:00 p.m.</Hour>
+  </Config>
+</ConfigEmail>

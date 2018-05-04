@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DLI_PROModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DLI_PRO.dbo.BI_Email_RA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="BI_Email_RA">
+          
+          <Key>
+            <PropertyRef Name="ID_generico" />
+          </Key>
+          <Property Name="ID_generico" Type="bigint" Nullable="false" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="DayWeek" Type="varchar" MaxLength="9" />
+          <Property Name="id_Customer" Type="nvarchar" MaxLength="15" />
+          <Property Name="CardName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ItemName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Returns" Type="numeric" Precision="38" Scale="6" />
+          <Property Name="id_SalesRep" Type="int" Nullable="false" />
+          <Property Name="Budget" Type="numeric" Precision="38" Scale="6" />
+          <Property Name="Reason" Type="nvarchar" MaxLength="254" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DLI_PRO.dbo.BI_Email_RA_Head' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="BI_Email_RA_Head">
+          <Key>
+            <PropertyRef Name="ID_generico" />
+          </Key>
+          <Property Name="ID_generico" Type="bigint" Nullable="false" />
+          <Property Name="SlpCode" Type="int" />
+          <Property Name="Descr" Type="nvarchar" MaxLength="254" />
+          <Property Name="Budget" Type="numeric" Precision="38" Scale="6" Nullable="false" />
+          <Property Name="Returns" Type="numeric" Precision="38" Scale="6" Nullable="false" />
+          <Property Name="Achv" Type="numeric" Precision="38" Scale="6" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DLI_PRO.dbo.BI_sales_report' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="BI_sales_report">
+          <Key>
+            
+            
+            
+            
+            
+            
+            <PropertyRef Name="ID_generico" />
+          </Key>
+          <Property Name="ID_generico" Type="bigint" Nullable="false" />
+          <Property Name="CardCode" Type="nvarchar" MaxLength="15" />
+          <Property Name="CardName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Route" Type="nvarchar" MaxLength="30" />
+          <Property Name="SlpCode" Type="int" Nullable="false" />
+          <Property Name="SlpName" Type="nvarchar" MaxLength="155" Nullable="false" />
+          <Property Name="Budget" Type="numeric" Precision="19" Scale="6" Nullable="false" />
+          <Property Name="Total" Type="numeric" Precision="38" Scale="6" Nullable="false" />
+          <Property Name="Logro" Type="numeric" Precision="38" Scale="6" Nullable="false" />
+          <Property Name="Diferencia" Type="numeric" Precision="38" Scale="6" />
+          <Property Name="WeekType" Type="char" MaxLength="1" />
+          <Property Name="Dia" Type="varchar" MaxLength="9" />
+          <Property Name="Time" Type="time" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DLI_PROModelStoreContainer">
+          <EntitySet Name="BI_Email_RA" EntityType="Self.BI_Email_RA" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [BI_Email_RA].[ID_generico] AS [ID_generico], 
+    [BI_Email_RA].[Date] AS [Date], 
+    [BI_Email_RA].[DayWeek] AS [DayWeek], 
+    [BI_Email_RA].[id_Customer] AS [id_Customer], 
+    [BI_Email_RA].[CardName] AS [CardName], 
+    [BI_Email_RA].[ItemName] AS [ItemName], 
+    [BI_Email_RA].[Returns] AS [Returns], 
+    [BI_Email_RA].[id_SalesRep] AS [id_SalesRep], 
+    [BI_Email_RA].[Budget] AS [Budget], 
+    [BI_Email_RA].[Reason] AS [Reason]
+    FROM [dbo].[BI_Email_RA] AS [BI_Email_RA]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="BI_Email_RA_Head" EntityType="Self.BI_Email_RA_Head" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [BI_Email_RA_Head].[ID_generico] AS [ID_generico], 
+    [BI_Email_RA_Head].[SlpCode] AS [SlpCode], 
+    [BI_Email_RA_Head].[Descr] AS [Descr], 
+    [BI_Email_RA_Head].[Budget] AS [Budget], 
+    [BI_Email_RA_Head].[Returns] AS [Returns], 
+    [BI_Email_RA_Head].[Achv] AS [Achv]
+    FROM [dbo].[BI_Email_RA_Head] AS [BI_Email_RA_Head]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="BI_sales_report" EntityType="Self.BI_sales_report" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [BI_sales_report].[ID_generico] AS [ID_generico], 
+    [BI_sales_report].[CardCode] AS [CardCode], 
+    [BI_sales_report].[CardName] AS [CardName], 
+    [BI_sales_report].[Route] AS [Route], 
+    [BI_sales_report].[SlpCode] AS [SlpCode], 
+    [BI_sales_report].[SlpName] AS [SlpName], 
+    [BI_sales_report].[Budget] AS [Budget], 
+    [BI_sales_report].[Total] AS [Total], 
+    [BI_sales_report].[Logro] AS [Logro], 
+    [BI_sales_report].[Diferencia] AS [Diferencia], 
+    [BI_sales_report].[WeekType] AS [WeekType], 
+    [BI_sales_report].[Dia] AS [Dia], 
+    [BI_sales_report].[Time] AS [Time]
+    FROM [dbo].[BI_sales_report] AS [BI_sales_report]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DLI_PROModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BI_Email_RA">
+          <Key>
+            <PropertyRef Name="ID_generico" />
+          </Key>
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="DayWeek" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="id_Customer" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CardName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ItemName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="id_SalesRep" Type="Int32" Nullable="false" />
+          <Property Name="ID_generico" Type="Int64" Nullable="false" />
+          <Property Name="Returns" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="Budget" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="Reason" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="DLI_PROEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BI_Email_RA" EntityType="Self.BI_Email_RA" />
+          <EntitySet Name="BI_sales_report" EntityType="DLI_PROModel.BI_sales_report" />
+          <EntitySet Name="BI_Email_RA_Head" EntityType="DLI_PROModel.BI_Email_RA_Head" />
+        </EntityContainer>
+        <EntityType Name="BI_sales_report">
+          <Key>
+            <PropertyRef Name="ID_generico" />
+          </Key>
+          <Property Name="ID_generico" Type="Int64" Nullable="false" />
+          <Property Name="CardCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CardName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Route" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="SlpCode" Type="Int32" Nullable="false" />
+          <Property Name="SlpName" Type="String" Nullable="false" MaxLength="155" FixedLength="false" Unicode="true" />
+          <Property Name="Budget" Type="Decimal" Nullable="false" Precision="19" Scale="6" />
+          <Property Name="Total" Type="Decimal" Nullable="false" Precision="38" Scale="6" />
+          <Property Name="Logro" Type="Decimal" Nullable="false" Precision="38" Scale="6" />
+          <Property Name="Diferencia" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="WeekType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Dia" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="Time" Type="Time" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BI_Email_RA_Head">
+          <Key>
+            <PropertyRef Name="ID_generico" />
+          </Key>
+          <Property Name="ID_generico" Type="Int64" Nullable="false" />
+          <Property Name="SlpCode" Type="Int32" />
+          <Property Name="Descr" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="Budget" Type="Decimal" Nullable="false" Precision="38" Scale="6" />
+          <Property Name="Returns" Type="Decimal" Nullable="false" Precision="38" Scale="6" />
+          <Property Name="Achv" Type="Decimal" Precision="38" Scale="6" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DLI_PROModelStoreContainer" CdmEntityContainer="DLI_PROEntities">
+          <EntitySetMapping Name="BI_Email_RA">
+            <EntityTypeMapping TypeName="DLI_PROModel.BI_Email_RA">
+              <MappingFragment StoreEntitySet="BI_Email_RA">
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="Budget" ColumnName="Budget" />
+                <ScalarProperty Name="Returns" ColumnName="Returns" />
+                <ScalarProperty Name="ID_generico" ColumnName="ID_generico" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="DayWeek" ColumnName="DayWeek" />
+                <ScalarProperty Name="id_Customer" ColumnName="id_Customer" />
+                <ScalarProperty Name="CardName" ColumnName="CardName" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="id_SalesRep" ColumnName="id_SalesRep" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BI_sales_report">
+            <EntityTypeMapping TypeName="DLI_PROModel.BI_sales_report">
+              <MappingFragment StoreEntitySet="BI_sales_report">
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Dia" ColumnName="Dia" />
+                <ScalarProperty Name="WeekType" ColumnName="WeekType" />
+                <ScalarProperty Name="Diferencia" ColumnName="Diferencia" />
+                <ScalarProperty Name="Logro" ColumnName="Logro" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Budget" ColumnName="Budget" />
+                <ScalarProperty Name="SlpName" ColumnName="SlpName" />
+                <ScalarProperty Name="SlpCode" ColumnName="SlpCode" />
+                <ScalarProperty Name="Route" ColumnName="Route" />
+                <ScalarProperty Name="CardName" ColumnName="CardName" />
+                <ScalarProperty Name="CardCode" ColumnName="CardCode" />
+                <ScalarProperty Name="ID_generico" ColumnName="ID_generico" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BI_Email_RA_Head">
+            <EntityTypeMapping TypeName="DLI_PROModel.BI_Email_RA_Head">
+              <MappingFragment StoreEntitySet="BI_Email_RA_Head">
+                <ScalarProperty Name="Achv" ColumnName="Achv" />
+                <ScalarProperty Name="Returns" ColumnName="Returns" />
+                <ScalarProperty Name="Budget" ColumnName="Budget" />
+                <ScalarProperty Name="Descr" ColumnName="Descr" />
+                <ScalarProperty Name="SlpCode" ColumnName="SlpCode" />
+                <ScalarProperty Name="ID_generico" ColumnName="ID_generico" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,77 @@
+﻿
+@{
+    Layout = null;
+}
+
+	<!-- Main navbar -->
+<div class="navbar navbar-inverse">
+    <div class="navbar-header">
+        <a class="navbar-nav pull-left" href="@Url.Action("Index", "Home")"><img src="~/Content/images/logo.jpg" alt=""></a>
+        <ul class="nav navbar-nav pull-right visible-xs-block">
+            <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+        </ul>
+    </div>
+    <!--
+    <div class="navbar-collapse collapse" id="navbar-mobile">
+        
+        <ul class="nav navbar-nav navbar-right">         
+            <li class="dropdown dropdown-user">
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                    <img src="~/Content/images/placeholder.jpg" alt="">
+                    <span>User name</span>
+                    <i class="caret"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a href="#"><i class="icon-user-plus"></i> My profile</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="icon-cog5"></i> Account settings</a></li>
+                    <li><a href="#"><i class="icon-switch2"></i> Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+        -->
+</div>
+<!-- /main navbar -->
+<!-- Second navbar -->
+<div class="navbar navbar-default" id="navbar-second">
+    <ul class="nav navbar-nav no-border visible-xs-block">
+        <li><a class="text-center collapsed" data-toggle="collapse" data-target="#navbar-second-toggle"><i class="icon-menu7"></i></a></li>
+    </ul>
+    <div class="navbar-collapse collapse" id="navbar-second-toggle">
+        <ul class="nav navbar-nav">
+            <li ><a href="@Url.Action("Index", "Home")"><i class="icon-display4 position-left"></i> Home</a></li>
+            <li class="dropdown mega-menu mega-menu-wide">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-puzzle4 position-left"></i> Applications <span class="caret"></span></a>
+                <div class="dropdown-menu dropdown-content">
+                    <div class="dropdown-content-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <span class="menu-heading underlined">Send Mails With Information</span>
+                                <ul class="menu-list">
+                                    <li>
+                                        <a href="@Url.Action("IndexMWRCI", "SendMWRCI")"><i class="icon-file-stats2"></i> Returns and Allowances</a>
+                                        <a href="@Url.Action("IndexSalesReport", "SalesReport")"><i class="icon-file-stats"></i> Sales</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="#">
+                    <i class="icon-history position-left"></i>
+                    version
+                    <span class="label label-inline position-right bg-success-400">1.0</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- /second navbar -->

@@ -1,0 +1,170 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+ <!-- Page content -->
+<div class="page-content">
+    <!-- Main content -->
+    <div class="content-wrapper">
+
+        <!-- Dashboard content -->
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Marketing campaigns -->
+                <div class="panel panel-flat">
+                    <div class="panel-heading">
+                        <h6 class="panel-title">Recipient List</h6>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table text-nowrap">
+                            <thead>
+                                <tr>
+                                   
+                                    <th class="col-md-2">Sales Representative</th>
+                                    <th class="col-md-2">Email</th>
+                                    <th class="col-md-2">Names</th>
+                                    <th class="col-md-2">Last Names</th>
+                                    <th class="col-md-2">Supervisor</th>
+                                    <th class="col-md-2">Preview</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in ViewBag.SellersData)
+                                {
+                                <tr>
+                                    
+                                    <td><h10 class="text-semibold">@item.SalesRepresentative</h10></td>
+                                    <td><span class="text-success-600">@item.Email</span></td>
+                                    <td><span class="text-muted">@item.Names</span></td>
+                                    <td><span class="text-muted">@item.LastNames</span></td>
+                                    <td><span class="text-success-600">@item.Supervisor</span></td>
+                                    <td><a href="@Url.Action("previewMessage", "SendMWRCI", new { id = item.Id})" class="btn btn-link btn-float has-text" target="_blank"><i class="icon-file-pdf text-primary"></i></a></td>
+                                </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- /marketing campaigns --> 
+            </div>
+            <div class="col-lg-4">
+                
+                <!-- Daily sales -->
+                <div class="panel panel-flat">
+                    <div class="panel-heading">
+                        <h6 class="panel-title">CC:</h6>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-nowrap">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+@foreach (var item in ViewBag.CcData)
+{
+                                <tr>
+                                    <td>
+                                        <div class="media-body">
+                                            <div class="media-heading">
+                                                <a href="#" class="letter-icon-title">@item.Name</a>
+                                            </div>
+                                            <div class="text-muted text-size-small"><i class="icon-checkmark3 text-size-mini position-left"></i> @item.Position</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <h8 class="text-semibold no-margin">@item.Email</h8>
+                                    </td>
+
+                                </tr>
+}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- /daily sales -->
+                <!-- Actions  -->
+                <div class="panel panel-flat">
+                    <div class="panel-heading">
+                        <h6 class="panel-title">Actions:</h6>
+                    </div>
+                    <div class="panel-body">
+                        <div id="sales-heatmap"></div>
+                       
+                        <a href="@Url.Action("sendMessage", "SendMWRCI")" class="btn btn-link btn-float has-text"><i class="icon-envelop3 text-primary"></i> <span>Send</span></a>
+                        <a href="#" data-toggle="modal" data-target="#form_modal_ingresar" class="btn btn-link btn-float has-text"><i class="icon-cog text-primary"></i> <span>Email Settings</span></a>
+
+                    </div>
+                </div>
+                <!-- /daily sales -->
+                
+            </div>
+        </div>
+        <!-- /dashboard content -->
+    </div>
+    <!-- /main content -->
+</div>
+<!-- /page content -->
+
+<!-- Form modal -->
+<div id="form_modal_ingresar" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"><i class="icon-cogs"></i> Email Settings </h4>
+            </div>
+
+            <!-- Form inside modal -->
+            @using (Html.BeginForm("EditConfiguration", "SendMWRCI", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="modal-body with-padding">
+                    <div class="block-inner text-danger">
+                        <h6 class="heading-hr">Email<small class="display-block">Configure the sender mail.</small></h6>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="Email" class="form-control" value="@ViewBag.confEmail" required />
+                        <label>Password</label>
+                        <input type="password" name="Password" class="form-control" value="@ViewBag.confPassword" required />
+                    </div>
+                    <hr>
+                    <div class="block-inner text-danger">
+                        <h6 class="heading-hr">Schedule Email<small class="display-block">Configure when emails are sent.</small></h6>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="checkbox">
+                                    <label>
+                                        For this option, use the Windows Task Scheduler Control. 
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+<!-- /form modal -->

@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wappm_limena", "wappm_limena\wappm_limena.csproj", "{AAEDBBB6-C75B-4CA6-B389-2DB2563326ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wappm_limena.Helper", "Selles.Helper\wappm_limena.Helper.csproj", "{CE24A20B-B1E7-46CE-94C6-E7D8B22B384E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "schedulerControlforSalesReport", "schedulerControlforSalesReport\schedulerControlforSalesReport.csproj", "{4BC63624-71D3-42A9-B8EE-A094B355756C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "schedulerControlforRA", "schedulerControlforRA\schedulerControlforRA.csproj", "{A30E4751-3A2B-4D13-AE55-36241A50A6AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AAEDBBB6-C75B-4CA6-B389-2DB2563326ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAEDBBB6-C75B-4CA6-B389-2DB2563326ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAEDBBB6-C75B-4CA6-B389-2DB2563326ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAEDBBB6-C75B-4CA6-B389-2DB2563326ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE24A20B-B1E7-46CE-94C6-E7D8B22B384E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE24A20B-B1E7-46CE-94C6-E7D8B22B384E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE24A20B-B1E7-46CE-94C6-E7D8B22B384E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE24A20B-B1E7-46CE-94C6-E7D8B22B384E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BC63624-71D3-42A9-B8EE-A094B355756C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BC63624-71D3-42A9-B8EE-A094B355756C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BC63624-71D3-42A9-B8EE-A094B355756C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BC63624-71D3-42A9-B8EE-A094B355756C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A30E4751-3A2B-4D13-AE55-36241A50A6AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A30E4751-3A2B-4D13-AE55-36241A50A6AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A30E4751-3A2B-4D13-AE55-36241A50A6AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A30E4751-3A2B-4D13-AE55-36241A50A6AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

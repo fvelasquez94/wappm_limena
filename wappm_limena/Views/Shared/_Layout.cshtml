@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - LIMENA Web Applications Management</title>
+    @*@Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")*@
+    @Html.Partial("~/Views/Shared/Routes.cshtml")
+
+</head>
+<body>
+    @Html.Partial("~/Views/Shared/Main_menu.cshtml")
+    @Html.Partial("~/Views/Shared/Main_header.cshtml")
+    <!-- Page container -->
+    <div class="page-container">
+       @RenderBody()
+       @Html.Partial("~/Views/Shared/Main_footer.cshtml")
+    </div>
+    <!-- /page container -->
+
+
+    @*@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)*@
+</body>
+</html>
+
+@if (TempData["error"] != null)
+{
+    <script type="text/javascript">
+                window.onload = function () {
+                    $.jGrowl('@TempData["error"].ToString()', { sticky: true, theme: 'growl-error', header: 'Error' });
+            };
+
+    </script>
+}
+@if (TempData["success"] != null)
+{
+    <script type="text/javascript">
+                window.onload = function () {
+                    $.jGrowl('@TempData["success"].ToString()', { theme: 'growl-success', header: 'Success' });
+            };
+
+    </script>
+}
+@if (TempData["warning"] != null)
+{
+    <script type="text/javascript">
+                window.onload = function () {
+                    $.jGrowl('@TempData["Warning"].ToString()', { theme: 'growl-warning', header: 'Warning' });
+            };
+
+    </script>
+}
+
