@@ -6,6 +6,30 @@
     <edmx:StorageModels>
     <Schema Namespace="DLI_PROModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errors Found During Generation:
+warning 6002: The table/view 'DLI_PRO.dbo.BI_Accounts_receivable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="BI_Accounts_receivable">
+          <Key>
+            
+            
+            
+            
+            
+            <PropertyRef Name="DocNum" />
+          </Key>
+          <Property Name="Date" Type="datetime" />
+          <Property Name="DocNum" Type="int" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="CardCode" Type="nvarchar" MaxLength="15" />
+          <Property Name="CardName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Amount" Type="numeric" Precision="38" Scale="6" />
+          <Property Name="Zone" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="SalesRepCode" Type="int" Nullable="false" />
+          <Property Name="SalesRep" Type="nvarchar" MaxLength="155" Nullable="false" />
+          <Property Name="PaymentTerm" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="idAging" Type="int" />
+          <Property Name="Aging" Type="varchar" MaxLength="17" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'DLI_PRO.dbo.BI_Email_RA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="BI_Email_RA">
           
@@ -27,6 +51,8 @@ warning 6002: The table/view 'DLI_PRO.dbo.BI_Email_RA' does not have a primary k
 warning 6002: The table/view 'DLI_PRO.dbo.BI_Email_RA_Head' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="BI_Email_RA_Head">
           <Key>
+            
+            
             <PropertyRef Name="ID_generico" />
           </Key>
           <Property Name="ID_generico" Type="bigint" Nullable="false" />
@@ -37,10 +63,9 @@ warning 6002: The table/view 'DLI_PRO.dbo.BI_Email_RA_Head' does not have a prim
           <Property Name="Achv" Type="numeric" Precision="38" Scale="6" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'DLI_PRO.dbo.BI_sales_report' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="BI_sales_report">
+warning 6002: The table/view 'DLI_PRO.dbo.BI_Sales_Report' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="BI_Sales_Report">
           <Key>
-            
             
             
             
@@ -56,13 +81,29 @@ warning 6002: The table/view 'DLI_PRO.dbo.BI_sales_report' does not have a prima
           <Property Name="SlpName" Type="nvarchar" MaxLength="155" Nullable="false" />
           <Property Name="Budget" Type="numeric" Precision="19" Scale="6" Nullable="false" />
           <Property Name="Total" Type="numeric" Precision="38" Scale="6" Nullable="false" />
-          <Property Name="Logro" Type="numeric" Precision="38" Scale="6" Nullable="false" />
+          <Property Name="Logro" Type="numeric" Precision="38" Scale="6" />
           <Property Name="Diferencia" Type="numeric" Precision="38" Scale="6" />
           <Property Name="WeekType" Type="char" MaxLength="1" />
           <Property Name="Dia" Type="varchar" MaxLength="9" />
           <Property Name="Time" Type="time" Precision="7" Nullable="false" />
         </EntityType>
         <EntityContainer Name="DLI_PROModelStoreContainer">
+          <EntitySet Name="BI_Accounts_receivable" EntityType="Self.BI_Accounts_receivable" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [BI_Accounts_receivable].[Date] AS [Date], 
+    [BI_Accounts_receivable].[DocNum] AS [DocNum], 
+    [BI_Accounts_receivable].[Type] AS [Type], 
+    [BI_Accounts_receivable].[CardCode] AS [CardCode], 
+    [BI_Accounts_receivable].[CardName] AS [CardName], 
+    [BI_Accounts_receivable].[Amount] AS [Amount], 
+    [BI_Accounts_receivable].[Zone] AS [Zone], 
+    [BI_Accounts_receivable].[SalesRepCode] AS [SalesRepCode], 
+    [BI_Accounts_receivable].[SalesRep] AS [SalesRep], 
+    [BI_Accounts_receivable].[PaymentTerm] AS [PaymentTerm], 
+    [BI_Accounts_receivable].[idAging] AS [idAging], 
+    [BI_Accounts_receivable].[Aging] AS [Aging]
+    FROM [dbo].[BI_Accounts_receivable] AS [BI_Accounts_receivable]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="BI_Email_RA" EntityType="Self.BI_Email_RA" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [BI_Email_RA].[ID_generico] AS [ID_generico], 
@@ -87,22 +128,22 @@ warning 6002: The table/view 'DLI_PRO.dbo.BI_sales_report' does not have a prima
     [BI_Email_RA_Head].[Achv] AS [Achv]
     FROM [dbo].[BI_Email_RA_Head] AS [BI_Email_RA_Head]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="BI_sales_report" EntityType="Self.BI_sales_report" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="BI_Sales_Report" EntityType="Self.BI_Sales_Report" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [BI_sales_report].[ID_generico] AS [ID_generico], 
-    [BI_sales_report].[CardCode] AS [CardCode], 
-    [BI_sales_report].[CardName] AS [CardName], 
-    [BI_sales_report].[Route] AS [Route], 
-    [BI_sales_report].[SlpCode] AS [SlpCode], 
-    [BI_sales_report].[SlpName] AS [SlpName], 
-    [BI_sales_report].[Budget] AS [Budget], 
-    [BI_sales_report].[Total] AS [Total], 
-    [BI_sales_report].[Logro] AS [Logro], 
-    [BI_sales_report].[Diferencia] AS [Diferencia], 
-    [BI_sales_report].[WeekType] AS [WeekType], 
-    [BI_sales_report].[Dia] AS [Dia], 
-    [BI_sales_report].[Time] AS [Time]
-    FROM [dbo].[BI_sales_report] AS [BI_sales_report]</DefiningQuery>
+    [BI_Sales_Report].[ID_generico] AS [ID_generico], 
+    [BI_Sales_Report].[CardCode] AS [CardCode], 
+    [BI_Sales_Report].[CardName] AS [CardName], 
+    [BI_Sales_Report].[Route] AS [Route], 
+    [BI_Sales_Report].[SlpCode] AS [SlpCode], 
+    [BI_Sales_Report].[SlpName] AS [SlpName], 
+    [BI_Sales_Report].[Budget] AS [Budget], 
+    [BI_Sales_Report].[Total] AS [Total], 
+    [BI_Sales_Report].[Logro] AS [Logro], 
+    [BI_Sales_Report].[Diferencia] AS [Diferencia], 
+    [BI_Sales_Report].[WeekType] AS [WeekType], 
+    [BI_Sales_Report].[Dia] AS [Dia], 
+    [BI_Sales_Report].[Time] AS [Time]
+    FROM [dbo].[BI_Sales_Report] AS [BI_Sales_Report]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -126,10 +167,39 @@ warning 6002: The table/view 'DLI_PRO.dbo.BI_sales_report' does not have a prima
         </EntityType>
         <EntityContainer Name="DLI_PROEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BI_Email_RA" EntityType="Self.BI_Email_RA" />
-          <EntitySet Name="BI_sales_report" EntityType="DLI_PROModel.BI_sales_report" />
           <EntitySet Name="BI_Email_RA_Head" EntityType="DLI_PROModel.BI_Email_RA_Head" />
+          <EntitySet Name="BI_Accounts_receivable" EntityType="DLI_PROModel.BI_Accounts_receivable" />
+          <EntitySet Name="BI_Sales_Report" EntityType="DLI_PROModel.BI_Sales_Report" />
         </EntityContainer>
-        <EntityType Name="BI_sales_report">
+        <EntityType Name="BI_Email_RA_Head">
+          <Key>
+            <PropertyRef Name="ID_generico" />
+          </Key>
+          <Property Name="ID_generico" Type="Int64" Nullable="false" />
+          <Property Name="SlpCode" Type="Int32" />
+          <Property Name="Descr" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="Budget" Type="Decimal" Nullable="false" Precision="38" Scale="6" />
+          <Property Name="Returns" Type="Decimal" Nullable="false" Precision="38" Scale="6" />
+          <Property Name="Achv" Type="Decimal" Precision="38" Scale="6" />
+        </EntityType>
+        <EntityType Name="BI_Accounts_receivable">
+          <Key>
+            <PropertyRef Name="DocNum" />
+          </Key>
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="DocNum" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CardCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CardName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="Zone" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="SalesRepCode" Type="Int32" Nullable="false" />
+          <Property Name="SalesRep" Type="String" Nullable="false" MaxLength="155" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentTerm" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Aging" Type="String" MaxLength="17" FixedLength="false" Unicode="false" />
+          <Property Name="idAging" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BI_Sales_Report">
           <Key>
             <PropertyRef Name="ID_generico" />
           </Key>
@@ -141,22 +211,11 @@ warning 6002: The table/view 'DLI_PRO.dbo.BI_sales_report' does not have a prima
           <Property Name="SlpName" Type="String" Nullable="false" MaxLength="155" FixedLength="false" Unicode="true" />
           <Property Name="Budget" Type="Decimal" Nullable="false" Precision="19" Scale="6" />
           <Property Name="Total" Type="Decimal" Nullable="false" Precision="38" Scale="6" />
-          <Property Name="Logro" Type="Decimal" Nullable="false" Precision="38" Scale="6" />
+          <Property Name="Logro" Type="Decimal" Precision="38" Scale="6" />
           <Property Name="Diferencia" Type="Decimal" Precision="38" Scale="6" />
           <Property Name="WeekType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="Dia" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
-          <Property Name="Time" Type="Time" Precision="7" Nullable="false" />
-        </EntityType>
-        <EntityType Name="BI_Email_RA_Head">
-          <Key>
-            <PropertyRef Name="ID_generico" />
-          </Key>
-          <Property Name="ID_generico" Type="Int64" Nullable="false" />
-          <Property Name="SlpCode" Type="Int32" />
-          <Property Name="Descr" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
-          <Property Name="Budget" Type="Decimal" Nullable="false" Precision="38" Scale="6" />
-          <Property Name="Returns" Type="Decimal" Nullable="false" Precision="38" Scale="6" />
-          <Property Name="Achv" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -180,9 +239,39 @@ warning 6002: The table/view 'DLI_PRO.dbo.BI_sales_report' does not have a prima
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="BI_sales_report">
-            <EntityTypeMapping TypeName="DLI_PROModel.BI_sales_report">
-              <MappingFragment StoreEntitySet="BI_sales_report">
+          <EntitySetMapping Name="BI_Email_RA_Head">
+            <EntityTypeMapping TypeName="DLI_PROModel.BI_Email_RA_Head">
+              <MappingFragment StoreEntitySet="BI_Email_RA_Head">
+                <ScalarProperty Name="Achv" ColumnName="Achv" />
+                <ScalarProperty Name="Returns" ColumnName="Returns" />
+                <ScalarProperty Name="Budget" ColumnName="Budget" />
+                <ScalarProperty Name="Descr" ColumnName="Descr" />
+                <ScalarProperty Name="SlpCode" ColumnName="SlpCode" />
+                <ScalarProperty Name="ID_generico" ColumnName="ID_generico" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BI_Accounts_receivable">
+            <EntityTypeMapping TypeName="DLI_PROModel.BI_Accounts_receivable">
+              <MappingFragment StoreEntitySet="BI_Accounts_receivable">
+                <ScalarProperty Name="idAging" ColumnName="idAging" />
+                <ScalarProperty Name="Aging" ColumnName="Aging" />
+                <ScalarProperty Name="PaymentTerm" ColumnName="PaymentTerm" />
+                <ScalarProperty Name="SalesRep" ColumnName="SalesRep" />
+                <ScalarProperty Name="SalesRepCode" ColumnName="SalesRepCode" />
+                <ScalarProperty Name="Zone" ColumnName="Zone" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="CardName" ColumnName="CardName" />
+                <ScalarProperty Name="CardCode" ColumnName="CardCode" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="DocNum" ColumnName="DocNum" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BI_Sales_Report">
+            <EntityTypeMapping TypeName="DLI_PROModel.BI_Sales_Report">
+              <MappingFragment StoreEntitySet="BI_Sales_Report">
                 <ScalarProperty Name="Time" ColumnName="Time" />
                 <ScalarProperty Name="Dia" ColumnName="Dia" />
                 <ScalarProperty Name="WeekType" ColumnName="WeekType" />
@@ -195,18 +284,6 @@ warning 6002: The table/view 'DLI_PRO.dbo.BI_sales_report' does not have a prima
                 <ScalarProperty Name="Route" ColumnName="Route" />
                 <ScalarProperty Name="CardName" ColumnName="CardName" />
                 <ScalarProperty Name="CardCode" ColumnName="CardCode" />
-                <ScalarProperty Name="ID_generico" ColumnName="ID_generico" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BI_Email_RA_Head">
-            <EntityTypeMapping TypeName="DLI_PROModel.BI_Email_RA_Head">
-              <MappingFragment StoreEntitySet="BI_Email_RA_Head">
-                <ScalarProperty Name="Achv" ColumnName="Achv" />
-                <ScalarProperty Name="Returns" ColumnName="Returns" />
-                <ScalarProperty Name="Budget" ColumnName="Budget" />
-                <ScalarProperty Name="Descr" ColumnName="Descr" />
-                <ScalarProperty Name="SlpCode" ColumnName="SlpCode" />
                 <ScalarProperty Name="ID_generico" ColumnName="ID_generico" />
               </MappingFragment>
             </EntityTypeMapping>

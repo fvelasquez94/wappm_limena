@@ -1,22 +1,17 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
-using Postal;
-using Spire.Pdf;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Net.Mail;
 using System.Net.Mime;
 using System.Web;
-using System.Web.Mvc;
 using wappm_limena.Helper;
 using wappm_limena.Models;
 
 namespace wappm_limena
 {
-    public class clsScheduleSalesReport
+    public class clsScheduleARreport
     {
         private DLI_PROEntities db = new DLI_PROEntities();
         public void sendMessage_console()
@@ -28,25 +23,25 @@ namespace wappm_limena
             StreamWriter writer;
             TextWriter oldOut = Console.Out;
 
-            ostrm = new FileStream("./logs/log_" + date + ".txt", FileMode.OpenOrCreate, FileAccess.Write);
+            ostrm = new FileStream("./logs/arlog_" + date + ".txt", FileMode.OpenOrCreate, FileAccess.Write);
             writer = new StreamWriter(ostrm);
 
             Console.SetOut(writer);
 
             var path = "";
-            var pathimage = "";
+            //var pathimage = "";
             XMLReader readXML = new XMLReader();
-            Console.WriteLine("Auto Mail Sender for Sales Report");
+            Console.WriteLine("Auto Mail Sender for Accounts receivable");
             Console.WriteLine("Returning Sellers list...");
-            var Sellersdata = readXML.ReturnListOfSellersSR_console();
+            var Sellersdata = readXML.ReturnListOfSellersAR_console();
             Console.WriteLine("Returning CC list...");
-            var CcData = readXML.ReturnListOfCcSR_console();
+            var CcData = readXML.ReturnListOfCcAR_console();
             //var destinatariosCC = "";
             //int count = 1;
 
             Console.WriteLine("Getting email configuration...");
             //Llamamos a los datos de configuracion
-            var Config = readXML.ReturnEmailConfig_console().FirstOrDefault();
+            var Config = readXML.ReturnEmailConfigAR_console().FirstOrDefault();
 
 
             if (Sellersdata.Count > 0)
@@ -54,8 +49,8 @@ namespace wappm_limena
                 Console.WriteLine("Sending emails...");
                 foreach (var seller in Sellersdata)
                 {
-                    var salesorders = (from c in db.BI_Sales_Report where (c.SlpCode == seller.Id) select c).OrderBy(x => x.Time).ToList();
-                    if (salesorders.Count() > 0)
+                    var accounts_receivable = (from c in db.BI_Accounts_receivable where (c.SalesRepCode == seller.Id) select c).OrderByDescending(x => x.idAging).ThenByDescending(x => x.Amount).ToList();
+                    if (accounts_receivable.Count() > 0)
                     {
                         //Existen datos
 
@@ -65,39 +60,20 @@ System.IO.Path.GetDirectoryName(
 System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
 ).LocalPath;//Path of the xml script  
 
-                        reportpath = reportpath + "\\Reports\\rptSalesReportBySeller.rpt";
+                        reportpath = reportpath + "\\Reports\\rptAccountsReceivableBySeller.rpt";
 
 
                         rd.Load(reportpath);
-     
 
-                        rd.SetDataSource(salesorders);
+                        rd.SetDataSource(accounts_receivable);
                         string fecha = DateTime.Now.ToLongDateString();
                         rd.SetParameterValue("fecha_actual", fecha);
 
                         rd.SetParameterValue("nombre", seller.Names.ToUpper());
                         rd.SetParameterValue("apellido", seller.LastNames.ToUpper());
-                        rd.SetParameterValue("weektype", "Week" + " " + salesorders.Where(x => x.WeekType != null).FirstOrDefault().WeekType.ToString());
 
-                        var totalBudget = salesorders.AsEnumerable().Sum(x => x.Budget);
-                        rd.SetParameterValue("budget", totalBudget);
-                        var totalOrderSales = salesorders.Where(x => x.Budget > 0).AsEnumerable().Sum(x => x.Total);
-                        rd.SetParameterValue("salesorder", totalOrderSales);
-                        var totalOtherSales = salesorders.Where(x => x.Budget == 0).AsEnumerable().Sum(x => x.Total);
-                        rd.SetParameterValue("othersales", totalOtherSales);
-                        var totalSales = totalOrderSales + totalOtherSales;
-                        rd.SetParameterValue("Totalsales", totalSales);
-                        if (totalBudget > 0)
-                        {
-                            var totalAchievements = (totalSales / totalBudget) * 100;
-                            rd.SetParameterValue("total_achievements", totalAchievements);
-                        }
-                        else
-                        {
-                            var totalAchievements = 100.00;
-                            rd.SetParameterValue("total_achievements", totalAchievements);
-
-                        }
+                        var totalAR = accounts_receivable.AsEnumerable().Sum(x => x.Amount);
+                        rd.SetParameterValue("totalAR", totalAR);
 
 
                         var filePathOriginal = new Uri(
@@ -130,17 +106,17 @@ System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
 
 
 
-                        var filename = "Sales Report " + seller.SalesRepresentative + " " + DateTime.Now.ToString("dddd").ToUpper() + ".pdf";
+                        var filename = "Accounts Receivable Report " + seller.SalesRepresentative + ".pdf";
                         path = Path.Combine(filePathOriginal, filename);
                         rd.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, path);
 
-                        PdfDocument doc = new PdfDocument();
-                        doc.LoadFromFile(path);
-                        Image img = doc.SaveAsImage(0);
-                        var imagename = "Sales Report " + seller.SalesRepresentative + " " + DateTime.Now.ToString("dddd").ToUpper() + ".jpg";
-                        pathimage = Path.Combine(filePathOriginal, imagename);
-                        img.Save(pathimage);
-                        doc.Close();
+                        //PdfDocument doc = new PdfDocument();
+                        //doc.LoadFromFile(path);
+                        //Image img = doc.SaveAsImage(0);
+                        //var imagename = "Sales Report " + seller.SalesRepresentative + " " + DateTime.Now.ToString("dddd").ToUpper() + ".jpg";
+                        //pathimage = Path.Combine(filePathOriginal, imagename);
+                        //img.Save(pathimage);
+                        //doc.Close();
 
 
                         //Para enviar correos
@@ -164,12 +140,13 @@ System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
                             client.Credentials = new System.Net.NetworkCredential(Config.Email.ToString(), Config.Password.ToString());
 
                             objeto_mail.IsBodyHtml = true;
-                            objeto_mail.AlternateViews.Add(getEmbeddedImage(pathimage));
+                            Attachment data = new Attachment(path, MediaTypeNames.Application.Pdf);
+                            objeto_mail.Attachments.Add(data);
 
 
                             objeto_mail.From = new MailAddress(Config.Email);
                             objeto_mail.To.Add(new MailAddress(seller.Email.ToString()));
-                            objeto_mail.Subject = "Sales Report | " + seller.SalesRepresentative + " " + DateTime.Now.ToString("dddd").ToUpper();
+                            objeto_mail.Subject = "Accounts Receivable Report | " + seller.SalesRepresentative;
                             foreach (var bcc in CcData)
                             {
                                 MailAddress bccEmail = new MailAddress(bcc.Email.ToString());
@@ -209,16 +186,6 @@ System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
             writer.Close();
             ostrm.Close();
         }
-        private AlternateView getEmbeddedImage(String filePath)
-        {
-            LinkedResource res = new LinkedResource(filePath, MediaTypeNames.Image.Jpeg);
-            res.ContentId = Guid.NewGuid().ToString();
-            
-            string htmlBody = @"<img src='cid:" + res.ContentId + @"'/>";
-            AlternateView alternateView = AlternateView.CreateAlternateViewFromString(htmlBody,null, MediaTypeNames.Text.Html);
 
-            alternateView.LinkedResources.Add(res);
-            return alternateView;
-        }
     }
 }

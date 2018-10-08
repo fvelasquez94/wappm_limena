@@ -12,7 +12,8 @@ namespace wappm_limena.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    public partial class BI_sales_report
+
+    public partial class BI_Sales_Report
     {
         public long ID_generico { get; set; }
         public string CardCode { get; set; }

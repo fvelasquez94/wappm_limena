@@ -238,7 +238,10 @@ System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
                   }).ToList();
             return Cc;
         }
-
+        /// <summary>
+        /// RAAAAA
+        /// </summary>
+        /// <returns></returns>
         public List<Config> ReturnEmailConfigRA_console()
         {
             string xmlData = new Uri(
@@ -261,6 +264,260 @@ System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
                       }).ToList();
             return Config;
         }
+
+        // SECCION PARA Accounts Receivable
+        public List<Sellers> ReturnListOfSellersAR()
+        {
+            string xmlData = HttpContext.Current.Server.MapPath("~/App_Data/BI_Accounts_receivable/SellersData.xml");//Path of the xml script  
+            DataSet ds = new DataSet();//Using dataset to read xml file  
+            ds.ReadXml(xmlData);
+            var sellers = new List<Sellers>();
+            sellers = (from rows in ds.Tables[0].AsEnumerable()
+                       select new Sellers
+                       {
+                           Id = Convert.ToInt32(rows[0]),// Convert.ToInt32(rows[0].ToString()), //Convert row to int  
+                           SalesRepresentative = rows[1].ToString(),
+                           Email = rows[2].ToString(),
+                           Names = rows[3].ToString(),
+                           LastNames = rows[4].ToString(),
+                           Supervisor = rows[5].ToString(),
+                       }).ToList();
+            return sellers;
+        }
+
+
+
+
+        public List<Cc> ReturnListOfCcAR()
+        {
+            string xmlData = HttpContext.Current.Server.MapPath("~/App_Data/BI_Accounts_receivable/CcData.xml");//Path of the xml script  
+            DataSet ds = new DataSet();//Using dataset to read xml file  
+            ds.ReadXml(xmlData);
+            var Cc = new List<Cc>();
+            Cc = (from rows in ds.Tables[0].AsEnumerable()
+                  select new Cc
+                  {
+                      Id = rows[0].ToString(),// Convert.ToInt32(rows[0].ToString()), //Convert row to int  
+                      Name = rows[1].ToString(),
+                      Email = rows[2].ToString(),
+                      Position = rows[3].ToString(),
+                  }).ToList();
+            return Cc;
+        }
+
+        // FIN SECCION PARA Accounts Receivable
+        // SECCION Accounts Receivable para consola
+        public List<Sellers> ReturnListOfSellersAR_console()
+        {
+            string xmlData = new Uri(
+    System.IO.Path.GetDirectoryName(
+        System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
+    ).LocalPath;//Path of the xml script  
+
+            xmlData = xmlData + "\\BI_Accounts_receivable\\SellersData.xml";
+            DataSet ds = new DataSet();//Using dataset to read xml file  
+            ds.ReadXml(xmlData);
+            var sellers = new List<Sellers>();
+            sellers = (from rows in ds.Tables[0].AsEnumerable()
+                       select new Sellers
+                       {
+                           Id = Convert.ToInt32(rows[0]),// Convert.ToInt32(rows[0].ToString()), //Convert row to int  
+                           SalesRepresentative = rows[1].ToString(),
+                           Email = rows[2].ToString(),
+                           Names = rows[3].ToString(),
+                           LastNames = rows[4].ToString(),
+                           Supervisor = rows[5].ToString(),
+                       }).ToList();
+            return sellers;
+        }
+
+        public List<Cc> ReturnListOfCcAR_console()
+        {
+            string xmlData = new Uri(
+System.IO.Path.GetDirectoryName(
+System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
+).LocalPath;//Path of the xml script  
+
+            xmlData = xmlData + "\\BI_Accounts_receivable\\CcData.xml";
+            DataSet ds = new DataSet();//Using dataset to read xml file  
+            ds.ReadXml(xmlData);
+            var Cc = new List<Cc>();
+            Cc = (from rows in ds.Tables[0].AsEnumerable()
+                  select new Cc
+                  {
+                      Id = rows[0].ToString(),// Convert.ToInt32(rows[0].ToString()), //Convert row to int  
+                      Name = rows[1].ToString(),
+                      Email = rows[2].ToString(),
+                      Position = rows[3].ToString(),
+                  }).ToList();
+            return Cc;
+        }
+
+        public List<Config> ReturnEmailConfigAR_console()
+        {
+            string xmlData = new Uri(
+System.IO.Path.GetDirectoryName(
+System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
+).LocalPath;//Path of the xml script  
+
+            xmlData = xmlData + "\\BI_Accounts_receivable\\Config.xml";
+            DataSet ds = new DataSet();//Using dataset to read xml file  
+            ds.ReadXml(xmlData);
+            var Config = new List<Config>();
+            Config = (from rows in ds.Tables[0].AsEnumerable()
+                      select new Config
+                      {
+                          Id = rows[0].ToString(),// Convert.ToInt32(rows[0].ToString()), //Convert row to int  
+                          Email = rows[1].ToString(),
+                          Password = rows[2].ToString(),
+                          AllDays = Convert.ToInt32(rows[3]),
+                          Hour = rows[4].ToString(),
+                      }).ToList();
+            return Config;
+        }
+
+        //FIN DE SECCION Accounts Receivable
+
+
+        /// <summary>
+        /// VENDORS LIST VD
+        /// </summary>
+        /// <returns></returns>
+        public List<Config> ReturnEmailConfigVD()
+        {
+            string xmlData = new Uri(
+System.IO.Path.GetDirectoryName(
+System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
+).LocalPath;//Path of the xml script  
+
+            xmlData = xmlData + "\\SendMWRCI\\Config.xml";
+            DataSet ds = new DataSet();//Using dataset to read xml file  
+            ds.ReadXml(xmlData);
+            var Config = new List<Config>();
+            Config = (from rows in ds.Tables[0].AsEnumerable()
+                      select new Config
+                      {
+                          Id = rows[0].ToString(),// Convert.ToInt32(rows[0].ToString()), //Convert row to int  
+                          Email = rows[1].ToString(),
+                          Password = rows[2].ToString(),
+                          AllDays = Convert.ToInt32(rows[3]),
+                          Hour = rows[4].ToString(),
+                      }).ToList();
+            return Config;
+        }
+
+        // SECCION PARA VENDORS LIST
+        public List<Sellers> ReturnListOfVendorsVD()
+        {
+            string xmlData = HttpContext.Current.Server.MapPath("~/App_Data/Vendors_data/SellersData.xml");//Path of the xml script  
+            DataSet ds = new DataSet();//Using dataset to read xml file  
+            ds.ReadXml(xmlData);
+            var sellers = new List<Sellers>();
+            sellers = (from rows in ds.Tables[0].AsEnumerable()
+                       select new Sellers
+                       {
+                           Id = Convert.ToInt32(rows[0]),// Convert.ToInt32(rows[0].ToString()), //Convert row to int  
+                           SalesRepresentative = rows[1].ToString(),
+                           Email = rows[2].ToString(),
+                           Names = rows[3].ToString(),
+                           LastNames = rows[4].ToString(),
+                           Supervisor = rows[5].ToString(),
+                       }).ToList();
+            return sellers;
+        }
+
+
+
+
+        public List<Cc> ReturnListOfCcVD()
+        {
+            string xmlData = HttpContext.Current.Server.MapPath("~/App_Data/Vendors_data/CcData.xml");//Path of the xml script  
+            DataSet ds = new DataSet();//Using dataset to read xml file  
+            ds.ReadXml(xmlData);
+            var Cc = new List<Cc>();
+            Cc = (from rows in ds.Tables[0].AsEnumerable()
+                  select new Cc
+                  {
+                      Id = rows[0].ToString(),// Convert.ToInt32(rows[0].ToString()), //Convert row to int  
+                      Name = rows[1].ToString(),
+                      Email = rows[2].ToString(),
+                      Position = rows[3].ToString(),
+                  }).ToList();
+            return Cc;
+        }
+
+        // FIN SECCION PARA Accounts Receivable
+        // SECCION Accounts Receivable para consola
+        public List<Sellers> ReturnListOfVendorsVD_console()
+        {
+            string xmlData = new Uri(
+    System.IO.Path.GetDirectoryName(
+        System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
+    ).LocalPath;//Path of the xml script  
+
+            xmlData = xmlData + "\\Vendors_data\\SellersData.xml";
+            DataSet ds = new DataSet();//Using dataset to read xml file  
+            ds.ReadXml(xmlData);
+            var sellers = new List<Sellers>();
+            sellers = (from rows in ds.Tables[0].AsEnumerable()
+                       select new Sellers
+                       {
+                           Id = Convert.ToInt32(rows[0]),// Convert.ToInt32(rows[0].ToString()), //Convert row to int  
+                           SalesRepresentative = rows[1].ToString(),
+                           Email = rows[2].ToString(),
+                           Names = rows[3].ToString(),
+                           LastNames = rows[4].ToString(),
+                           Supervisor = rows[5].ToString(),
+                       }).ToList();
+            return sellers;
+        }
+
+        public List<Cc> ReturnListOfCcVD_console()
+        {
+            string xmlData = new Uri(
+System.IO.Path.GetDirectoryName(
+System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
+).LocalPath;//Path of the xml script  
+
+            xmlData = xmlData + "\\Vendors_data\\CcData.xml";
+            DataSet ds = new DataSet();//Using dataset to read xml file  
+            ds.ReadXml(xmlData);
+            var Cc = new List<Cc>();
+            Cc = (from rows in ds.Tables[0].AsEnumerable()
+                  select new Cc
+                  {
+                      Id = rows[0].ToString(),// Convert.ToInt32(rows[0].ToString()), //Convert row to int  
+                      Name = rows[1].ToString(),
+                      Email = rows[2].ToString(),
+                      Position = rows[3].ToString(),
+                  }).ToList();
+            return Cc;
+        }
+
+        public List<Config> ReturnEmailConfigVD_console()
+        {
+            string xmlData = new Uri(
+System.IO.Path.GetDirectoryName(
+System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
+).LocalPath;//Path of the xml script  
+
+            xmlData = xmlData + "\\Vendors_data\\Config.xml";
+            DataSet ds = new DataSet();//Using dataset to read xml file  
+            ds.ReadXml(xmlData);
+            var Config = new List<Config>();
+            Config = (from rows in ds.Tables[0].AsEnumerable()
+                      select new Config
+                      {
+                          Id = rows[0].ToString(),// Convert.ToInt32(rows[0].ToString()), //Convert row to int  
+                          Email = rows[1].ToString(),
+                          Password = rows[2].ToString(),
+                          AllDays = Convert.ToInt32(rows[3]),
+                          Hour = rows[4].ToString(),
+                      }).ToList();
+            return Config;
+        }
+
+        //FIN DE SECCION VENDORS DATA
 
     }
 

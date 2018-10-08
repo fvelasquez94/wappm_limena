@@ -2,7 +2,7 @@
     ViewBag.Title = "Home";
 }
 
- <!-- Page content -->
+<!-- Page content -->
 <div class="page-content">
     <!-- Main content -->
     <div class="content-wrapper">
@@ -20,7 +20,7 @@
                         <table class="table text-nowrap">
                             <thead>
                                 <tr>
-                                   
+
                                     <th class="col-md-2">Sales Representative</th>
                                     <th class="col-md-2">Email</th>
                                     <th class="col-md-2">Names</th>
@@ -32,25 +32,25 @@
                             <tbody>
                                 @foreach (var item in ViewBag.SellersData)
                                 {
-                                <tr>
-                                    
-                                    <td><h10 class="text-semibold">@item.SalesRepresentative</h10></td>
-                                    <td><span class="text-success-600">@item.Email</span></td>
-                                    <td><span class="text-muted">@item.Names</span></td>
-                                    <td><span class="text-muted">@item.LastNames</span></td>
-                                    <td><span class="text-success-600">@item.Supervisor</span></td>
-                                    <td><a href="@Url.Action("previewMessage", "SendMWRCI", new { id = item.Id})" class="btn btn-link btn-float has-text" target="_blank"><i class="icon-file-pdf text-primary"></i></a></td>
-                                </tr>
+                                    <tr>
+
+                                        <td><h10 class="text-semibold">@item.SalesRepresentative</h10></td>
+                                        <td><span class="text-success-600">@item.Email</span></td>
+                                        <td><span class="text-muted">@item.Names</span></td>
+                                        <td><span class="text-muted">@item.LastNames</span></td>
+                                        <td><span class="text-success-600">@item.Supervisor</span></td>
+                                        <td><a href="@Url.Action("previewMessage", "BI_Accounts_receivable", new { id = item.Id})" class="btn btn-link btn-float has-text" target="_blank"><i class="icon-file-pdf text-primary"></i></a></td>
+                                    </tr>
                                 }
 
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <!-- /marketing campaigns --> 
+                <!-- /marketing campaigns -->
             </div>
             <div class="col-lg-4">
-                
+
                 <!-- Daily sales -->
                 <div class="panel panel-flat">
                     <div class="panel-heading">
@@ -62,27 +62,27 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Email</th>
-                                   
+
                                 </tr>
                             </thead>
                             <tbody>
-@foreach (var item in ViewBag.CcData)
-{
-                                <tr>
-                                    <td>
-                                        <div class="media-body">
-                                            <div class="media-heading">
-                                                <a href="#" class="letter-icon-title">@item.Name</a>
+                                @foreach (var item in ViewBag.CcData)
+                                {
+                                    <tr>
+                                        <td>
+                                            <div class="media-body">
+                                                <div class="media-heading">
+                                                    <a href="#" class="letter-icon-title">@item.Name</a>
+                                                </div>
+                                                <div class="text-muted text-size-small"><i class="icon-checkmark3 text-size-mini position-left"></i> @item.Position</div>
                                             </div>
-                                            <div class="text-muted text-size-small"><i class="icon-checkmark3 text-size-mini position-left"></i> @item.Position</div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <h8 class="text-semibold no-margin">@item.Email</h8>
-                                    </td>
+                                        </td>
+                                        <td>
+                                            <h8 class="text-semibold no-margin">@item.Email</h8>
+                                        </td>
 
-                                </tr>
-}
+                                    </tr>
+                                }
 
                             </tbody>
                         </table>
@@ -96,14 +96,14 @@
                     </div>
                     <div class="panel-body">
                         <div id="sales-heatmap"></div>
-                       
-                        <a href="@Url.Action("sendMessage", "SendMWRCI")" class="btn btn-link btn-float has-text"><i class="icon-envelop3 text-primary"></i> <span>Send</span></a>
+
+                        <a href="@Url.Action("sendMessage", "BI_Accounts_receivable")" class="btn btn-link btn-float has-text"><i class="icon-envelop3 text-primary"></i> <span>Send</span></a>
                         <a href="#" data-toggle="modal" data-target="#form_modal_ingresar" class="btn btn-link btn-float has-text"><i class="icon-cog text-primary"></i> <span>Email Settings</span></a>
 
                     </div>
                 </div>
                 <!-- /daily sales -->
-                
+
             </div>
         </div>
         <!-- /dashboard content -->
@@ -111,7 +111,6 @@
     <!-- /main content -->
 </div>
 <!-- /page content -->
-
 <!-- Form modal -->
 <div id="form_modal_ingresar" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog">
@@ -122,7 +121,7 @@
             </div>
 
             <!-- Form inside modal -->
-            @using (Html.BeginForm("EditConfiguration", "SendMWRCI", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            @using (Html.BeginForm("EditConfiguration", "BI_Accounts_receivable", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
                 @Html.AntiForgeryToken()
 
@@ -147,7 +146,7 @@
                             <div class="col-sm-12">
                                 <div class="checkbox">
                                     <label>
-                                        For this option, use the Windows Task Scheduler Control. 
+                                        For this option, use Windows Task Scheduler Control.
                                     </label>
                                 </div>
                             </div>

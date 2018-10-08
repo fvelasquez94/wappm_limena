@@ -83,7 +83,7 @@ namespace wappm_limena.Controllers
             {
                 foreach (var seller in Sellersdata)
                 {
-                    var salesorders = (from c in db.BI_sales_report where (c.SlpCode == seller.Id) select c).OrderBy(x => x.Time).ToList();
+                    var salesorders = (from c in db.BI_Sales_Report where (c.SlpCode == seller.Id) select c).OrderBy(x => x.Time).ToList();
                     if (salesorders.Count > 0)
                     {
                         //Existen datos
@@ -245,7 +245,7 @@ namespace wappm_limena.Controllers
             {
                 foreach (var seller in Sellersdata)
                 {
-                    var salesorders = (from c in db.BI_sales_report where (c.SlpCode == seller.Id) select c).OrderBy(x => x.Time).ToList();
+                    var salesorders = (from c in db.BI_Sales_Report where (c.SlpCode == seller.Id) select c).OrderBy(x => x.Time).ToList();
                     if (salesorders.Count > 0)
                     {
                         //Existen datos

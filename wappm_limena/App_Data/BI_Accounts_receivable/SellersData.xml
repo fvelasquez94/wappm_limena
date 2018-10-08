@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Sellers>
+
+  <Seller>
+    <Id>5</Id>
+    <SalesRepresentative>Aristoteles Rodriguez</SalesRepresentative>
+    <Email>pakitoxd94@gmail.com</Email>
+    <Names>Aristóteles</Names>
+    <LastNames>Rodriguez</LastNames>
+    <Supervisor>franvelasquez194@gmail.com</Supervisor>
+  </Seller>
+  <Seller>
+    <Id>19</Id>
+    <SalesRepresentative>Victor Caicedo</SalesRepresentative>
+    <Email>pakitoxd94@gmail.com</Email>
+    <Names>Josefina</Names>
+    <LastNames>Avalos</LastNames>
+    <Supervisor>franvelasquez194@gmail.com</Supervisor>
+  </Seller>
+
+</Sellers>

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wappm_limena", "wappm_limena\wappm_limena.csproj", "{AAEDBBB6-C75B-4CA6-B389-2DB2563326ED}"
 EndProject
@@ -10,6 +10,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "schedulerControlforSalesReport", "schedulerControlforSalesReport\schedulerControlforSalesReport.csproj", "{4BC63624-71D3-42A9-B8EE-A094B355756C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "schedulerControlforRA", "schedulerControlforRA\schedulerControlforRA.csproj", "{A30E4751-3A2B-4D13-AE55-36241A50A6AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "schedulerControlforAR", "schedulerControlforAR\schedulerControlforAR.csproj", "{2B117D15-9398-42F4-B9DF-752047C52E91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "schedulerControlforVD", "schedulerControlforVD\schedulerControlforVD.csproj", "{31CFE63B-9BE4-417E-B710-AD925552CE02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,8 +37,19 @@ Global
 		{A30E4751-3A2B-4D13-AE55-36241A50A6AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A30E4751-3A2B-4D13-AE55-36241A50A6AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A30E4751-3A2B-4D13-AE55-36241A50A6AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B117D15-9398-42F4-B9DF-752047C52E91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B117D15-9398-42F4-B9DF-752047C52E91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B117D15-9398-42F4-B9DF-752047C52E91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B117D15-9398-42F4-B9DF-752047C52E91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31CFE63B-9BE4-417E-B710-AD925552CE02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31CFE63B-9BE4-417E-B710-AD925552CE02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31CFE63B-9BE4-417E-B710-AD925552CE02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31CFE63B-9BE4-417E-B710-AD925552CE02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {95470A9A-EF6D-422C-8133-D63959A64A78}
 	EndGlobalSection
 EndGlobal

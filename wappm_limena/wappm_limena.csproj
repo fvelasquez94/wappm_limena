@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -214,13 +215,19 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="clsScheduleARreport.cs" />
     <Compile Include="clsScheduleRAreport.cs" />
     <Compile Include="clsScheduleSalesReport.cs" />
+    <Compile Include="clsScheduleVDreport.cs" />
+    <Compile Include="Controllers\BI_Accounts_receivableController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SalesReportController.cs" />
     <Compile Include="Controllers\SendMWRCIController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BI_Accounts_receivable.cs">
+      <DependentUpon>DLI_PRO_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\BI_Email_RA.cs">
       <DependentUpon>DLI_PRO_Model.tt</DependentUpon>
@@ -228,7 +235,7 @@
     <Compile Include="Models\BI_Email_RA_Head.cs">
       <DependentUpon>DLI_PRO_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BI_sales_report.cs">
+    <Compile Include="Models\BI_Sales_Report.cs">
       <DependentUpon>DLI_PRO_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DLI_PRO_Model.Context.cs">
@@ -247,6 +254,18 @@
       <DependentUpon>DLI_PRO_Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\rptAccountsReceivableBySeller_backup.cs">
+      <DependentUpon>rptAccountsReceivableBySeller_backup.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\rptAccountsReceivableBySeller.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptAccountsReceivableBySeller.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\rptReturnsAndAllowancesBySeller_backup.cs">
       <DependentUpon>rptReturnsAndAllowancesBySeller_backup.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -274,6 +293,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\BI_Accounts_receivable\CcData.xml" />
+    <Content Include="App_Data\BI_Accounts_receivable\Config.xml" />
+    <Content Include="App_Data\BI_Accounts_receivable\SellersData.xml" />
     <Content Include="App_Data\SalesReport\CcData.xml" />
     <Content Include="App_Data\SalesReport\Config.xml" />
     <Content Include="App_Data\SalesReport\SellersData.xml" />
@@ -1719,7 +1741,10 @@
     <Content Include="Views\Emails\EmailMWRCI.cshtml" />
     <Content Include="Views\SalesReport\IndexSalesReport.cshtml" />
     <Content Include="Views\Emails\EmailSalesReport.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\WAPPM.pubxml" />
+    <Content Include="Views\BI_Accounts_receivable\IndexAccountsReceivable.cshtml" />
+    <Content Include="Views\Emails\EmailAccountsReceivableReport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Selles.Helper\wappm_limena.Helper.csproj">
@@ -1732,6 +1757,14 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reports\rptAccountsReceivableBySeller_backup.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptAccountsReceivableBySeller_backup.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptAccountsReceivableBySeller.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptAccountsReceivableBySeller.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptReturnsAndAllowancesBySeller_backup.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptReturnsAndAllowancesBySeller_backup.cs</LastGenOutput>
