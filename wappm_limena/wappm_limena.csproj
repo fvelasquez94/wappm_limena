@@ -48,6 +48,9 @@
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="LINQtoCSV, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LINQtoCSV.1.5.0.0\lib\net35\LINQtoCSV.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -223,6 +226,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SalesReportController.cs" />
     <Compile Include="Controllers\SendMWRCIController.cs" />
+    <Compile Include="Controllers\view_VendorsDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -252,6 +256,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DLI_PRO_Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\view_VendorsData.cs">
+      <DependentUpon>DLI_PRO_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports\rptAccountsReceivableBySeller_backup.cs">
@@ -1745,6 +1752,11 @@
     <None Include="Properties\PublishProfiles\WAPPM.pubxml" />
     <Content Include="Views\BI_Accounts_receivable\IndexAccountsReceivable.cshtml" />
     <Content Include="Views\Emails\EmailAccountsReceivableReport.cshtml" />
+    <Content Include="Views\view_VendorsData\Create.cshtml" />
+    <Content Include="Views\view_VendorsData\Delete.cshtml" />
+    <Content Include="Views\view_VendorsData\Details.cshtml" />
+    <Content Include="Views\view_VendorsData\Edit.cshtml" />
+    <Content Include="Views\view_VendorsData\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Selles.Helper\wappm_limena.Helper.csproj">

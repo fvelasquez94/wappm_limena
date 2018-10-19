@@ -22,4 +22,5 @@ namespace wappm_limena.Helper.External.Models
             public string Supervisor { get; set; }
         
     }
+
 }

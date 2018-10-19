@@ -9,6 +9,7 @@
         <EntityTypeShape EntityType="DLI_PROModel.BI_Email_RA_Head" Width="1.75" PointX="5.375" PointY="0.75" />
         <EntityTypeShape EntityType="DLI_PROModel.BI_Accounts_receivable" Width="1.5" PointX="7.5" PointY="1.75" />
         <EntityTypeShape EntityType="DLI_PROModel.BI_Sales_Report" Width="1.5" PointX="3" PointY="1.625" />
+        <EntityTypeShape EntityType="DLI_PROModel.view_VendorsData" Width="1.5" PointX="0.75" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -15,10 +15,10 @@ namespace wappm_limena.Models
     public partial class BI_Email_RA_Head
     {
         public long ID_generico { get; set; }
-        public int SlpCode { get; set; }
+        public Nullable<int> SlpCode { get; set; }
         public string Descr { get; set; }
         public decimal Budget { get; set; }
         public decimal Returns { get; set; }
-        public decimal Achv { get; set; }
+        public Nullable<decimal> Achv { get; set; }
     }
 }

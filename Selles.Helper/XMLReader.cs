@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Web;//Add References -> Choose assemblies
 using System.Data;
 using wappm_limena.Helper.External.Models; // This is the External Model that I created.
-
+using Selles.Helper.External.Models;
 
 namespace wappm_limena.Helper
 {
@@ -407,21 +407,21 @@ System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
         }
 
         // SECCION PARA VENDORS LIST
-        public List<Sellers> ReturnListOfVendorsVD()
+        public List<Vendors> ReturnListOfVendorsVD()
         {
-            string xmlData = HttpContext.Current.Server.MapPath("~/App_Data/Vendors_data/SellersData.xml");//Path of the xml script  
+            string xmlData = HttpContext.Current.Server.MapPath("~/App_Data/Vendors_data/VendorsData.xml");//Path of the xml script  
             DataSet ds = new DataSet();//Using dataset to read xml file  
             ds.ReadXml(xmlData);
-            var sellers = new List<Sellers>();
+            var sellers = new List<Vendors>();
             sellers = (from rows in ds.Tables[0].AsEnumerable()
-                       select new Sellers
+                       select new Vendors
                        {
-                           Id = Convert.ToInt32(rows[0]),// Convert.ToInt32(rows[0].ToString()), //Convert row to int  
-                           SalesRepresentative = rows[1].ToString(),
+                           Vendor_id = rows[0].ToString(),// Convert.ToInt32(rows[0].ToString()), //Convert row to int  
+                           Vendor_name = rows[1].ToString(),
                            Email = rows[2].ToString(),
                            Names = rows[3].ToString(),
                            LastNames = rows[4].ToString(),
-                           Supervisor = rows[5].ToString(),
+                           Position = rows[5].ToString(),
                        }).ToList();
             return sellers;
         }
@@ -429,50 +429,51 @@ System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
 
 
 
-        public List<Cc> ReturnListOfCcVD()
+        public List<Cc_vendorsdata> ReturnListOfCcVD()
         {
             string xmlData = HttpContext.Current.Server.MapPath("~/App_Data/Vendors_data/CcData.xml");//Path of the xml script  
             DataSet ds = new DataSet();//Using dataset to read xml file  
             ds.ReadXml(xmlData);
-            var Cc = new List<Cc>();
+            var Cc = new List<Cc_vendorsdata>();
             Cc = (from rows in ds.Tables[0].AsEnumerable()
-                  select new Cc
+                  select new Cc_vendorsdata
                   {
                       Id = rows[0].ToString(),// Convert.ToInt32(rows[0].ToString()), //Convert row to int  
                       Name = rows[1].ToString(),
                       Email = rows[2].ToString(),
                       Position = rows[3].ToString(),
+                      Vendor_id = rows[4].ToString(),
                   }).ToList();
             return Cc;
         }
 
         // FIN SECCION PARA Accounts Receivable
         // SECCION Accounts Receivable para consola
-        public List<Sellers> ReturnListOfVendorsVD_console()
+        public List<Vendors> ReturnListOfVendorsVD_console()
         {
             string xmlData = new Uri(
     System.IO.Path.GetDirectoryName(
         System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
     ).LocalPath;//Path of the xml script  
 
-            xmlData = xmlData + "\\Vendors_data\\SellersData.xml";
+            xmlData = xmlData + "\\Vendors_data\\VendorsData.xml";
             DataSet ds = new DataSet();//Using dataset to read xml file  
             ds.ReadXml(xmlData);
-            var sellers = new List<Sellers>();
-            sellers = (from rows in ds.Tables[0].AsEnumerable()
-                       select new Sellers
+            var vendors = new List<Vendors>();
+            vendors = (from rows in ds.Tables[0].AsEnumerable()
+                       select new Vendors
                        {
-                           Id = Convert.ToInt32(rows[0]),// Convert.ToInt32(rows[0].ToString()), //Convert row to int  
-                           SalesRepresentative = rows[1].ToString(),
+                           Vendor_id = rows[0].ToString(),// Convert.ToInt32(rows[0].ToString()), //Convert row to int  
+                           Vendor_name = rows[1].ToString(),
                            Email = rows[2].ToString(),
                            Names = rows[3].ToString(),
                            LastNames = rows[4].ToString(),
-                           Supervisor = rows[5].ToString(),
+                           Position = rows[5].ToString(),
                        }).ToList();
-            return sellers;
+            return vendors;
         }
 
-        public List<Cc> ReturnListOfCcVD_console()
+        public List<Cc_vendorsdata> ReturnListOfCcVD_console()
         {
             string xmlData = new Uri(
 System.IO.Path.GetDirectoryName(
@@ -482,14 +483,15 @@ System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
             xmlData = xmlData + "\\Vendors_data\\CcData.xml";
             DataSet ds = new DataSet();//Using dataset to read xml file  
             ds.ReadXml(xmlData);
-            var Cc = new List<Cc>();
+            var Cc = new List<Cc_vendorsdata>();
             Cc = (from rows in ds.Tables[0].AsEnumerable()
-                  select new Cc
+                  select new Cc_vendorsdata
                   {
                       Id = rows[0].ToString(),// Convert.ToInt32(rows[0].ToString()), //Convert row to int  
                       Name = rows[1].ToString(),
                       Email = rows[2].ToString(),
                       Position = rows[3].ToString(),
+                      Vendor_id = rows[4].ToString(),
                   }).ToList();
             return Cc;
         }

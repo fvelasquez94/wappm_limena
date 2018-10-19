@@ -1,0 +1,154 @@
+﻿@model wappm_limena.Models.view_VendorsData
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>view_VendorsData</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.No_FACTURA)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.No_FACTURA)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FECHA_FACTURA)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FECHA_FACTURA)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.MES_FACTURA)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MES_FACTURA)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ANO_FACTURA)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ANO_FACTURA)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.NOMBRE_CLIENTE)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NOMBRE_CLIENTE)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PAIS)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PAIS)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.STATE)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.STATE)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CODIGO_ARTICULO)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CODIGO_ARTICULO)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DESCRIPCION_ARTICULO)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DESCRIPCION_ARTICULO)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FAMILIA)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FAMILIA)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.MARCA)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MARCA)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.VENDEDOR)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.VENDEDOR)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CANTIDAD_EN_CAJAS)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CANTIDAD_EN_CAJAS)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.VALOR_DE_VENTA_EN_US)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.VALOR_DE_VENTA_EN_US)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.COSTO_TOTAL_EN_US)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.COSTO_TOTAL_EN_US)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CODIGO_CLIENTE)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CODIGO_CLIENTE)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.CANAL }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

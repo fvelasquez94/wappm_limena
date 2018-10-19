@@ -29,5 +29,6 @@ namespace wappm_limena.Models
         public virtual DbSet<BI_Email_RA_Head> BI_Email_RA_Head { get; set; }
         public virtual DbSet<BI_Accounts_receivable> BI_Accounts_receivable { get; set; }
         public virtual DbSet<BI_Sales_Report> BI_Sales_Report { get; set; }
+        public virtual DbSet<view_VendorsData> view_VendorsData { get; set; }
     }
 }

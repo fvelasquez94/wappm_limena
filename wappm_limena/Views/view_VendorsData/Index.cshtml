@@ -1,0 +1,131 @@
+﻿@model IEnumerable<wappm_limena.Models.view_VendorsData>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.No_FACTURA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FECHA_FACTURA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MES_FACTURA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ANO_FACTURA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NOMBRE_CLIENTE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PAIS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.STATE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CODIGO_ARTICULO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DESCRIPCION_ARTICULO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FAMILIA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MARCA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VENDEDOR)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CANTIDAD_EN_CAJAS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VALOR_DE_VENTA_EN_US)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.COSTO_TOTAL_EN_US)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CODIGO_CLIENTE)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.No_FACTURA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FECHA_FACTURA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MES_FACTURA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ANO_FACTURA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NOMBRE_CLIENTE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PAIS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.STATE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CODIGO_ARTICULO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DESCRIPCION_ARTICULO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FAMILIA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MARCA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VENDEDOR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CANTIDAD_EN_CAJAS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VALOR_DE_VENTA_EN_US)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.COSTO_TOTAL_EN_US)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CODIGO_CLIENTE)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.CANAL }) |
+                @Html.ActionLink("Details", "Details", new { id=item.CANAL }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.CANAL })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

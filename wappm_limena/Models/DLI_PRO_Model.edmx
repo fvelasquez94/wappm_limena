@@ -87,6 +87,31 @@ warning 6002: The table/view 'DLI_PRO.dbo.BI_Sales_Report' does not have a prima
           <Property Name="Dia" Type="varchar" MaxLength="9" />
           <Property Name="Time" Type="time" Precision="7" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DLI_PRO.dbo.view_VendorsData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="view_VendorsData">
+          <Key>
+            <PropertyRef Name="ID_generico" />
+          </Key>
+          <Property Name="ID_generico" Type="bigint" Nullable="false" />
+          <Property Name="No_FACTURA" Type="int" />
+          <Property Name="FECHA_FACTURA" Type="datetime" />
+          <Property Name="MES_FACTURA" Type="smallint" />
+          <Property Name="ANO_FACTURA" Type="smallint" />
+          <Property Name="CODIGO_CLIENTE" Type="nvarchar" MaxLength="15" />
+          <Property Name="NOMBRE_CLIENTE" Type="nvarchar" MaxLength="100" />
+          <Property Name="PAIS" Type="nvarchar" MaxLength="3" />
+          <Property Name="STATE" Type="nvarchar" MaxLength="3" />
+          <Property Name="CODIGO_ARTICULO" Type="nvarchar" MaxLength="20" />
+          <Property Name="DESCRIPCION_ARTICULO" Type="nvarchar" MaxLength="100" />
+          <Property Name="FAMILIA" Type="nvarchar" MaxLength="20" />
+          <Property Name="CANAL" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="MARCA" Type="nvarchar" MaxLength="30" />
+          <Property Name="VENDEDOR" Type="nvarchar" MaxLength="155" />
+          <Property Name="CANTIDAD_EN_CAJAS" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="VALOR_DE_VENTA_EN_US" Type="numeric" Precision="38" Scale="10" />
+          <Property Name="COSTO_TOTAL_EN_US" Type="numeric" Precision="19" Scale="6" />
+        </EntityType>
         <EntityContainer Name="DLI_PROModelStoreContainer">
           <EntitySet Name="BI_Accounts_receivable" EntityType="Self.BI_Accounts_receivable" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -145,6 +170,28 @@ warning 6002: The table/view 'DLI_PRO.dbo.BI_Sales_Report' does not have a prima
     [BI_Sales_Report].[Time] AS [Time]
     FROM [dbo].[BI_Sales_Report] AS [BI_Sales_Report]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="view_VendorsData" EntityType="Self.view_VendorsData" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [view_VendorsData].[ID_generico] AS [ID_generico], 
+    [view_VendorsData].[No_FACTURA] AS [No_FACTURA], 
+    [view_VendorsData].[FECHA_FACTURA] AS [FECHA_FACTURA], 
+    [view_VendorsData].[MES_FACTURA] AS [MES_FACTURA], 
+    [view_VendorsData].[ANO_FACTURA] AS [ANO_FACTURA], 
+    [view_VendorsData].[CODIGO_CLIENTE] AS [CODIGO_CLIENTE], 
+    [view_VendorsData].[NOMBRE_CLIENTE] AS [NOMBRE_CLIENTE], 
+    [view_VendorsData].[PAIS] AS [PAIS], 
+    [view_VendorsData].[STATE] AS [STATE], 
+    [view_VendorsData].[CODIGO_ARTICULO] AS [CODIGO_ARTICULO], 
+    [view_VendorsData].[DESCRIPCION_ARTICULO] AS [DESCRIPCION_ARTICULO], 
+    [view_VendorsData].[FAMILIA] AS [FAMILIA], 
+    [view_VendorsData].[CANAL] AS [CANAL], 
+    [view_VendorsData].[MARCA] AS [MARCA], 
+    [view_VendorsData].[VENDEDOR] AS [VENDEDOR], 
+    [view_VendorsData].[CANTIDAD_EN_CAJAS] AS [CANTIDAD_EN_CAJAS], 
+    [view_VendorsData].[VALOR_DE_VENTA_EN_US] AS [VALOR_DE_VENTA_EN_US], 
+    [view_VendorsData].[COSTO_TOTAL_EN_US] AS [COSTO_TOTAL_EN_US]
+    FROM [dbo].[view_VendorsData] AS [view_VendorsData]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -170,6 +217,7 @@ warning 6002: The table/view 'DLI_PRO.dbo.BI_Sales_Report' does not have a prima
           <EntitySet Name="BI_Email_RA_Head" EntityType="DLI_PROModel.BI_Email_RA_Head" />
           <EntitySet Name="BI_Accounts_receivable" EntityType="DLI_PROModel.BI_Accounts_receivable" />
           <EntitySet Name="BI_Sales_Report" EntityType="DLI_PROModel.BI_Sales_Report" />
+          <EntitySet Name="view_VendorsData" EntityType="DLI_PROModel.view_VendorsData" />
         </EntityContainer>
         <EntityType Name="BI_Email_RA_Head">
           <Key>
@@ -216,6 +264,29 @@ warning 6002: The table/view 'DLI_PRO.dbo.BI_Sales_Report' does not have a prima
           <Property Name="WeekType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="Dia" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
           <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
+        </EntityType>
+        <EntityType Name="view_VendorsData">
+          <Key>
+            <PropertyRef Name="ID_generico" />
+          </Key>
+          <Property Name="No_FACTURA" Type="Int32" />
+          <Property Name="FECHA_FACTURA" Type="DateTime" Precision="3" />
+          <Property Name="MES_FACTURA" Type="Int16" />
+          <Property Name="ANO_FACTURA" Type="Int16" />
+          <Property Name="NOMBRE_CLIENTE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PAIS" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="STATE" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="CODIGO_ARTICULO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPCION_ARTICULO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FAMILIA" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CANAL" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="MARCA" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="VENDEDOR" Type="String" MaxLength="155" FixedLength="false" Unicode="true" />
+          <Property Name="CANTIDAD_EN_CAJAS" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="VALOR_DE_VENTA_EN_US" Type="Decimal" Precision="38" Scale="10" />
+          <Property Name="COSTO_TOTAL_EN_US" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="CODIGO_CLIENTE" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ID_generico" Type="Int64" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -285,6 +356,30 @@ warning 6002: The table/view 'DLI_PRO.dbo.BI_Sales_Report' does not have a prima
                 <ScalarProperty Name="CardName" ColumnName="CardName" />
                 <ScalarProperty Name="CardCode" ColumnName="CardCode" />
                 <ScalarProperty Name="ID_generico" ColumnName="ID_generico" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_VendorsData">
+            <EntityTypeMapping TypeName="DLI_PROModel.view_VendorsData">
+              <MappingFragment StoreEntitySet="view_VendorsData">
+                <ScalarProperty Name="ID_generico" ColumnName="ID_generico" />
+                <ScalarProperty Name="CODIGO_CLIENTE" ColumnName="CODIGO_CLIENTE" />
+                <ScalarProperty Name="COSTO_TOTAL_EN_US" ColumnName="COSTO_TOTAL_EN_US" />
+                <ScalarProperty Name="VALOR_DE_VENTA_EN_US" ColumnName="VALOR_DE_VENTA_EN_US" />
+                <ScalarProperty Name="CANTIDAD_EN_CAJAS" ColumnName="CANTIDAD_EN_CAJAS" />
+                <ScalarProperty Name="VENDEDOR" ColumnName="VENDEDOR" />
+                <ScalarProperty Name="MARCA" ColumnName="MARCA" />
+                <ScalarProperty Name="CANAL" ColumnName="CANAL" />
+                <ScalarProperty Name="FAMILIA" ColumnName="FAMILIA" />
+                <ScalarProperty Name="DESCRIPCION_ARTICULO" ColumnName="DESCRIPCION_ARTICULO" />
+                <ScalarProperty Name="CODIGO_ARTICULO" ColumnName="CODIGO_ARTICULO" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="PAIS" ColumnName="PAIS" />
+                <ScalarProperty Name="NOMBRE_CLIENTE" ColumnName="NOMBRE_CLIENTE" />
+                <ScalarProperty Name="ANO_FACTURA" ColumnName="ANO_FACTURA" />
+                <ScalarProperty Name="MES_FACTURA" ColumnName="MES_FACTURA" />
+                <ScalarProperty Name="FECHA_FACTURA" ColumnName="FECHA_FACTURA" />
+                <ScalarProperty Name="No_FACTURA" ColumnName="No_FACTURA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

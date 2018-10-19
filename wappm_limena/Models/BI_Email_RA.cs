@@ -14,15 +14,15 @@ namespace wappm_limena.Models
     
     public partial class BI_Email_RA
     {
-        public System.DateTime Date { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
         public string DayWeek { get; set; }
         public string id_Customer { get; set; }
         public string CardName { get; set; }
         public string ItemName { get; set; }
         public int id_SalesRep { get; set; }
         public long ID_generico { get; set; }
-        public decimal Returns { get; set; }
-        public decimal Budget { get; set; }
+        public Nullable<decimal> Returns { get; set; }
+        public Nullable<decimal> Budget { get; set; }
         public string Reason { get; set; }
     }
 }
