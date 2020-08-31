@@ -14,17 +14,17 @@ namespace wappm_limena.Models
     
     public partial class BI_Accounts_receivable
     {
-        public Nullable<System.DateTime> Date { get; set; }
+        public System.DateTime Date { get; set; }
         public int DocNum { get; set; }
         public string Type { get; set; }
         public string CardCode { get; set; }
         public string CardName { get; set; }
-        public Nullable<decimal> Amount { get; set; }
+        public decimal Amount { get; set; }
         public string Zone { get; set; }
         public int SalesRepCode { get; set; }
         public string SalesRep { get; set; }
         public string PaymentTerm { get; set; }
         public string Aging { get; set; }
-        public Nullable<int> idAging { get; set; }
+        public int idAging { get; set; }
     }
 }

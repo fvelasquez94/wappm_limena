@@ -220,6 +220,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="clsScheduleARreport.cs" />
     <Compile Include="clsScheduleRAreport.cs" />
+    <Compile Include="clsSchedulerItems.cs" />
     <Compile Include="clsScheduleSalesReport.cs" />
     <Compile Include="clsScheduleVDreport.cs" />
     <Compile Include="Controllers\BI_Accounts_receivableController.cs" />

@@ -23,7 +23,7 @@ namespace wappm_limena.Models
         public decimal Budget { get; set; }
         public decimal Total { get; set; }
         public decimal Logro { get; set; }
-        public Nullable<decimal> Diferencia { get; set; }
+        public decimal Diferencia { get; set; }
         public string WeekType { get; set; }
         public string Dia { get; set; }
         public System.TimeSpan Time { get; set; }
