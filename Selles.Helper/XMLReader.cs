@@ -496,6 +496,79 @@ System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
             return Cc;
         }
 
+
+        // SECCION Accounts Receivable para consola
+        public List<Vendors> ReturnListOfUsersItems_console()
+        {
+            string xmlData = new Uri(
+    System.IO.Path.GetDirectoryName(
+        System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
+    ).LocalPath;//Path of the xml script  
+
+            xmlData = xmlData + "\\Vendors_data\\VendorsData.xml";
+            DataSet ds = new DataSet();//Using dataset to read xml file  
+            ds.ReadXml(xmlData);
+            var vendors = new List<Vendors>();
+            vendors = (from rows in ds.Tables[0].AsEnumerable()
+                       select new Vendors
+                       {
+                           Vendor_id = rows[0].ToString(),// Convert.ToInt32(rows[0].ToString()), //Convert row to int  
+                           Vendor_name = rows[1].ToString(),
+                           Email = rows[2].ToString(),
+                           Names = rows[3].ToString(),
+                           LastNames = rows[4].ToString(),
+                           Position = rows[5].ToString(),
+                       }).ToList();
+            return vendors;
+        }
+
+        public List<Cc_vendorsdata> ReturnListOfCcItems_console()
+        {
+            string xmlData = new Uri(
+System.IO.Path.GetDirectoryName(
+System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
+).LocalPath;//Path of the xml script  
+
+            xmlData = xmlData + "\\Vendors_data\\CcData.xml";
+            DataSet ds = new DataSet();//Using dataset to read xml file  
+            ds.ReadXml(xmlData);
+            var Cc = new List<Cc_vendorsdata>();
+            Cc = (from rows in ds.Tables[0].AsEnumerable()
+                  select new Cc_vendorsdata
+                  {
+                      Id = rows[0].ToString(),// Convert.ToInt32(rows[0].ToString()), //Convert row to int  
+                      Name = rows[1].ToString(),
+                      Email = rows[2].ToString(),
+                      Position = rows[3].ToString(),
+                      Vendor_id = rows[4].ToString(),
+                  }).ToList();
+            return Cc;
+        }
+
+
+        public List<Config> ReturnEmailConfigItems_console()
+        {
+            string xmlData = new Uri(
+System.IO.Path.GetDirectoryName(
+System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
+).LocalPath;//Path of the xml script  
+
+            xmlData = xmlData + "\\Vendors_data\\Config.xml";
+            DataSet ds = new DataSet();//Using dataset to read xml file  
+            ds.ReadXml(xmlData);
+            var Config = new List<Config>();
+            Config = (from rows in ds.Tables[0].AsEnumerable()
+                      select new Config
+                      {
+                          Id = rows[0].ToString(),// Convert.ToInt32(rows[0].ToString()), //Convert row to int  
+                          Email = rows[1].ToString(),
+                          Password = rows[2].ToString(),
+                          AllDays = Convert.ToInt32(rows[3]),
+                          Hour = rows[4].ToString(),
+                      }).ToList();
+            return Config;
+        }
+
         public List<Config> ReturnEmailConfigVD_console()
         {
             string xmlData = new Uri(

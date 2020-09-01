@@ -25,12 +25,11 @@ namespace wappm_limena.Models
         public string DESCRIPCION_ARTICULO { get; set; }
         public string FAMILIA { get; set; }
         public string CANAL { get; set; }
-        public string PROVEEDOR { get; set; }
         public string MARCA { get; set; }
         public string VENDEDOR { get; set; }
         public decimal CANTIDAD_EN_CAJAS { get; set; }
-        public decimal COSTO_TOTAL_EN_US { get; set; }
         public decimal VALOR_DE_VENTA_EN_US { get; set; }
+        public decimal COSTO_TOTAL_EN_US { get; set; }
         public string CODIGO_CLIENTE { get; set; }
         public long ID_generico { get; set; }
     }

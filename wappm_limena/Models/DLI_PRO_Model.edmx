@@ -88,8 +88,80 @@ warning 6002: The table/view 'DLI_PRO.dbo.BI_Sales_Report' does not have a prima
           <Property Name="Time" Type="time" Precision="7" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'DLI_PRO.dbo.V_FACTORS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_FACTORS">
+          <Key>
+            <PropertyRef Name="SubCategory" />
+            <PropertyRef Name="ItemCode" />
+          </Key>
+          <Property Name="SubCategory" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Brand" Type="nvarchar" MaxLength="30" />
+          <Property Name="Vendor" Type="nvarchar" MaxLength="100" />
+          <Property Name="ItemCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ItemName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Active" Type="char" MaxLength="1" />
+          <Property Name="Pepperi" Type="nvarchar" MaxLength="3" />
+          <Property Name="BuyUoM" Type="nvarchar" MaxLength="100" />
+          <Property Name="BuyFactor" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="UoMGroup" Type="nvarchar" MaxLength="100" />
+          <Property Name="COST" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="SRP" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="MAIN_LIST_Price" Type="numeric" Precision="38" Scale="6" />
+          <Property Name="MAIN_LIST_Factor" Type="numeric" Precision="38" Scale="6" />
+          <Property Name="DIAMOND_Price" Type="numeric" Precision="38" Scale="6" />
+          <Property Name="DIAMOND_Factor" Type="numeric" Precision="38" Scale="6" />
+          <Property Name="GOLD_Price" Type="numeric" Precision="38" Scale="6" />
+          <Property Name="GOLD_Factor" Type="numeric" Precision="38" Scale="6" />
+          <Property Name="SILVER_Price" Type="numeric" Precision="38" Scale="6" />
+          <Property Name="SILVER_Factor" Type="numeric" Precision="38" Scale="6" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DLI_PRO.dbo.V_ItemList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_ItemList">
+          <Key>
+            <PropertyRef Name="ItemCode" />
+            <PropertyRef Name="Brand" />
+            <PropertyRef Name="SubCategory" />
+          </Key>
+          <Property Name="ItemCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ItemName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Buy Unit" Type="nvarchar" MaxLength="100" />
+          <Property Name="Buy Qty" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="ListPrice" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="SRP" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="ItemCost" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="Margin" Type="numeric" Precision="38" Scale="15" />
+          <Property Name="StockUnits" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="StockCases" Type="numeric" Precision="38" Scale="19" />
+          <Property Name="TotalInventoryCost" Type="numeric" Precision="38" Scale="11" />
+          <Property Name="Brand" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Category" Type="nvarchar" MaxLength="20" />
+          <Property Name="SubCategory" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Vendor ItemCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="UPC" Type="nvarchar" MaxLength="254" />
+          <Property Name="UoM Group" Type="nvarchar" MaxLength="100" />
+          <Property Name="VendorCode" Type="nvarchar" MaxLength="15" />
+          <Property Name="Vendor" Type="nvarchar" MaxLength="100" />
+          <Property Name="Active" Type="varchar" MaxLength="1" />
+          <Property Name="Pepperi" Type="nvarchar" MaxLength="3" />
+          <Property Name="U_Return" Type="nvarchar" MaxLength="10" />
+          <Property Name="U_Ti" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="U_HI" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="U_PalletCount" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="U_BinLocation" Type="nvarchar" MaxLength="20" />
+          <Property Name="StorageType" Type="nvarchar" MaxLength="20" />
+          <Property Name="SWW" Type="nvarchar" MaxLength="16" />
+          <Property Name="PicturName" Type="nvarchar" MaxLength="200" />
+          <Property Name="ItemClasif" Type="varchar" MaxLength="3" />
+          <Property Name="ItemComission" Type="numeric" Precision="2" Scale="1" />
+          <Property Name="Weight (Lbs)" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="U_PorcMin" Type="smallint" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'DLI_PRO.dbo.view_VendorsData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="view_VendorsData">
+          
           <Key>
             <PropertyRef Name="ID_generico" />
           </Key>
@@ -102,13 +174,13 @@ warning 6002: The table/view 'DLI_PRO.dbo.view_VendorsData' does not have a prim
           <Property Name="NOMBRE_CLIENTE" Type="nvarchar" MaxLength="100" />
           <Property Name="PAIS" Type="nvarchar" MaxLength="3" />
           <Property Name="STATE" Type="nvarchar" MaxLength="3" />
-          <Property Name="CODIGO_ARTICULO" Type="nvarchar" MaxLength="20" />
+          <Property Name="CODIGO_ARTICULO" Type="nvarchar" MaxLength="50" />
           <Property Name="DESCRIPCION_ARTICULO" Type="nvarchar" MaxLength="100" />
           <Property Name="FAMILIA" Type="nvarchar" MaxLength="20" />
           <Property Name="CANAL" Type="varchar" MaxLength="1" Nullable="false" />
           <Property Name="MARCA" Type="nvarchar" MaxLength="30" />
           <Property Name="VENDEDOR" Type="nvarchar" MaxLength="155" />
-          <Property Name="CANTIDAD_EN_CAJAS" Type="numeric" Precision="19" Scale="6" />
+          <Property Name="CANTIDAD_EN_CAJAS" Type="numeric" Precision="38" Scale="19" />
           <Property Name="VALOR_DE_VENTA_EN_US" Type="numeric" Precision="38" Scale="10" />
           <Property Name="COSTO_TOTAL_EN_US" Type="numeric" Precision="19" Scale="6" />
         </EntityType>
@@ -170,6 +242,68 @@ warning 6002: The table/view 'DLI_PRO.dbo.view_VendorsData' does not have a prim
     [BI_Sales_Report].[Time] AS [Time]
     FROM [dbo].[BI_Sales_Report] AS [BI_Sales_Report]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="V_FACTORS" EntityType="Self.V_FACTORS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_FACTORS].[SubCategory] AS [SubCategory], 
+    [V_FACTORS].[Brand] AS [Brand], 
+    [V_FACTORS].[Vendor] AS [Vendor], 
+    [V_FACTORS].[ItemCode] AS [ItemCode], 
+    [V_FACTORS].[ItemName] AS [ItemName], 
+    [V_FACTORS].[Active] AS [Active], 
+    [V_FACTORS].[Pepperi] AS [Pepperi], 
+    [V_FACTORS].[BuyUoM] AS [BuyUoM], 
+    [V_FACTORS].[BuyFactor] AS [BuyFactor], 
+    [V_FACTORS].[UoMGroup] AS [UoMGroup], 
+    [V_FACTORS].[COST] AS [COST], 
+    [V_FACTORS].[SRP] AS [SRP], 
+    [V_FACTORS].[MAIN_LIST_Price] AS [MAIN_LIST_Price], 
+    [V_FACTORS].[MAIN_LIST_Factor] AS [MAIN_LIST_Factor], 
+    [V_FACTORS].[DIAMOND_Price] AS [DIAMOND_Price], 
+    [V_FACTORS].[DIAMOND_Factor] AS [DIAMOND_Factor], 
+    [V_FACTORS].[GOLD_Price] AS [GOLD_Price], 
+    [V_FACTORS].[GOLD_Factor] AS [GOLD_Factor], 
+    [V_FACTORS].[SILVER_Price] AS [SILVER_Price], 
+    [V_FACTORS].[SILVER_Factor] AS [SILVER_Factor]
+    FROM [dbo].[V_FACTORS] AS [V_FACTORS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_ItemList" EntityType="Self.V_ItemList" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_ItemList].[ItemCode] AS [ItemCode], 
+    [V_ItemList].[ItemName] AS [ItemName], 
+    [V_ItemList].[Buy Unit] AS [Buy Unit], 
+    [V_ItemList].[Buy Qty] AS [Buy Qty], 
+    [V_ItemList].[ListPrice] AS [ListPrice], 
+    [V_ItemList].[SRP] AS [SRP], 
+    [V_ItemList].[ItemCost] AS [ItemCost], 
+    [V_ItemList].[Margin] AS [Margin], 
+    [V_ItemList].[StockUnits] AS [StockUnits], 
+    [V_ItemList].[StockCases] AS [StockCases], 
+    [V_ItemList].[TotalInventoryCost] AS [TotalInventoryCost], 
+    [V_ItemList].[Brand] AS [Brand], 
+    [V_ItemList].[Category] AS [Category], 
+    [V_ItemList].[SubCategory] AS [SubCategory], 
+    [V_ItemList].[Vendor ItemCode] AS [Vendor ItemCode], 
+    [V_ItemList].[UPC] AS [UPC], 
+    [V_ItemList].[UoM Group] AS [UoM Group], 
+    [V_ItemList].[VendorCode] AS [VendorCode], 
+    [V_ItemList].[Vendor] AS [Vendor], 
+    [V_ItemList].[Active] AS [Active], 
+    [V_ItemList].[Pepperi] AS [Pepperi], 
+    [V_ItemList].[U_Return] AS [U_Return], 
+    [V_ItemList].[U_Ti] AS [U_Ti], 
+    [V_ItemList].[U_HI] AS [U_HI], 
+    [V_ItemList].[U_PalletCount] AS [U_PalletCount], 
+    [V_ItemList].[U_BinLocation] AS [U_BinLocation], 
+    [V_ItemList].[StorageType] AS [StorageType], 
+    [V_ItemList].[SWW] AS [SWW], 
+    [V_ItemList].[PicturName] AS [PicturName], 
+    [V_ItemList].[ItemClasif] AS [ItemClasif], 
+    [V_ItemList].[ItemComission] AS [ItemComission], 
+    [V_ItemList].[Weight (Lbs)] AS [Weight (Lbs)], 
+    [V_ItemList].[CreationDate] AS [CreationDate], 
+    [V_ItemList].[U_PorcMin] AS [U_PorcMin]
+    FROM [dbo].[V_ItemList] AS [V_ItemList]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="view_VendorsData" EntityType="Self.view_VendorsData" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [view_VendorsData].[ID_generico] AS [ID_generico], 
@@ -218,6 +352,8 @@ warning 6002: The table/view 'DLI_PRO.dbo.view_VendorsData' does not have a prim
           <EntitySet Name="BI_Accounts_receivable" EntityType="DLI_PROModel.BI_Accounts_receivable" />
           <EntitySet Name="BI_Sales_Report" EntityType="DLI_PROModel.BI_Sales_Report" />
           <EntitySet Name="view_VendorsData" EntityType="DLI_PROModel.view_VendorsData" />
+          <EntitySet Name="V_FACTORS" EntityType="DLI_PROModel.V_FACTORS" />
+          <EntitySet Name="V_ItemList" EntityType="DLI_PROModel.V_ItemList" />
         </EntityContainer>
         <EntityType Name="BI_Email_RA_Head">
           <Key>
@@ -276,17 +412,84 @@ warning 6002: The table/view 'DLI_PRO.dbo.view_VendorsData' does not have a prim
           <Property Name="NOMBRE_CLIENTE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="PAIS" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
           <Property Name="STATE" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
-          <Property Name="CODIGO_ARTICULO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CODIGO_ARTICULO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DESCRIPCION_ARTICULO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="FAMILIA" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="CANAL" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="MARCA" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="VENDEDOR" Type="String" MaxLength="155" FixedLength="false" Unicode="true" />
-          <Property Name="CANTIDAD_EN_CAJAS" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="CANTIDAD_EN_CAJAS" Type="Decimal" Precision="38" Scale="19" />
           <Property Name="VALOR_DE_VENTA_EN_US" Type="Decimal" Precision="38" Scale="10" />
           <Property Name="COSTO_TOTAL_EN_US" Type="Decimal" Precision="19" Scale="6" />
           <Property Name="CODIGO_CLIENTE" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="ID_generico" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="V_FACTORS">
+          <Key>
+            <PropertyRef Name="SubCategory" />
+            <PropertyRef Name="ItemCode" />
+          </Key>
+          <Property Name="SubCategory" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Brand" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Vendor" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ItemCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ItemName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Pepperi" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="BuyUoM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BuyFactor" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="UoMGroup" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="COST" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="SRP" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="MAIN_LIST_Price" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="MAIN_LIST_Factor" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="DIAMOND_Price" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="DIAMOND_Factor" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="GOLD_Price" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="GOLD_Factor" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="SILVER_Price" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="SILVER_Factor" Type="Decimal" Precision="38" Scale="6" />
+        </EntityType>
+        <EntityType Name="V_ItemList">
+          <Key>
+            <PropertyRef Name="ItemCode" />
+            <PropertyRef Name="Brand" />
+            <PropertyRef Name="SubCategory" />
+          </Key>
+          <Property Name="ItemCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ItemName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Buy_Unit" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Buy_Qty" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="ListPrice" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="SRP" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="ItemCost" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="Margin" Type="Decimal" Precision="38" Scale="15" />
+          <Property Name="StockUnits" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="StockCases" Type="Decimal" Precision="38" Scale="19" />
+          <Property Name="TotalInventoryCost" Type="Decimal" Precision="38" Scale="11" />
+          <Property Name="Brand" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SubCategory" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Vendor_ItemCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UPC" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="UoM_Group" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VendorCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Vendor" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Pepperi" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="U_Return" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="U_Ti" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="U_HI" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="U_PalletCount" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="U_BinLocation" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="StorageType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SWW" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="PicturName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ItemClasif" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="ItemComission" Type="Decimal" Precision="2" Scale="1" />
+          <Property Name="Weight__Lbs_" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="U_PorcMin" Type="Int16" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -380,6 +583,72 @@ warning 6002: The table/view 'DLI_PRO.dbo.view_VendorsData' does not have a prim
                 <ScalarProperty Name="MES_FACTURA" ColumnName="MES_FACTURA" />
                 <ScalarProperty Name="FECHA_FACTURA" ColumnName="FECHA_FACTURA" />
                 <ScalarProperty Name="No_FACTURA" ColumnName="No_FACTURA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_FACTORS">
+            <EntityTypeMapping TypeName="DLI_PROModel.V_FACTORS">
+              <MappingFragment StoreEntitySet="V_FACTORS">
+                <ScalarProperty Name="SILVER_Factor" ColumnName="SILVER_Factor" />
+                <ScalarProperty Name="SILVER_Price" ColumnName="SILVER_Price" />
+                <ScalarProperty Name="GOLD_Factor" ColumnName="GOLD_Factor" />
+                <ScalarProperty Name="GOLD_Price" ColumnName="GOLD_Price" />
+                <ScalarProperty Name="DIAMOND_Factor" ColumnName="DIAMOND_Factor" />
+                <ScalarProperty Name="DIAMOND_Price" ColumnName="DIAMOND_Price" />
+                <ScalarProperty Name="MAIN_LIST_Factor" ColumnName="MAIN_LIST_Factor" />
+                <ScalarProperty Name="MAIN_LIST_Price" ColumnName="MAIN_LIST_Price" />
+                <ScalarProperty Name="SRP" ColumnName="SRP" />
+                <ScalarProperty Name="COST" ColumnName="COST" />
+                <ScalarProperty Name="UoMGroup" ColumnName="UoMGroup" />
+                <ScalarProperty Name="BuyFactor" ColumnName="BuyFactor" />
+                <ScalarProperty Name="BuyUoM" ColumnName="BuyUoM" />
+                <ScalarProperty Name="Pepperi" ColumnName="Pepperi" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="SubCategory" ColumnName="SubCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_ItemList">
+            <EntityTypeMapping TypeName="DLI_PROModel.V_ItemList">
+              <MappingFragment StoreEntitySet="V_ItemList">
+                <ScalarProperty Name="U_PorcMin" ColumnName="U_PorcMin" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Weight__Lbs_" ColumnName="Weight (Lbs)" />
+                <ScalarProperty Name="ItemComission" ColumnName="ItemComission" />
+                <ScalarProperty Name="ItemClasif" ColumnName="ItemClasif" />
+                <ScalarProperty Name="PicturName" ColumnName="PicturName" />
+                <ScalarProperty Name="SWW" ColumnName="SWW" />
+                <ScalarProperty Name="StorageType" ColumnName="StorageType" />
+                <ScalarProperty Name="U_BinLocation" ColumnName="U_BinLocation" />
+                <ScalarProperty Name="U_PalletCount" ColumnName="U_PalletCount" />
+                <ScalarProperty Name="U_HI" ColumnName="U_HI" />
+                <ScalarProperty Name="U_Ti" ColumnName="U_Ti" />
+                <ScalarProperty Name="U_Return" ColumnName="U_Return" />
+                <ScalarProperty Name="Pepperi" ColumnName="Pepperi" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+                <ScalarProperty Name="VendorCode" ColumnName="VendorCode" />
+                <ScalarProperty Name="UoM_Group" ColumnName="UoM Group" />
+                <ScalarProperty Name="UPC" ColumnName="UPC" />
+                <ScalarProperty Name="Vendor_ItemCode" ColumnName="Vendor ItemCode" />
+                <ScalarProperty Name="SubCategory" ColumnName="SubCategory" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="TotalInventoryCost" ColumnName="TotalInventoryCost" />
+                <ScalarProperty Name="StockCases" ColumnName="StockCases" />
+                <ScalarProperty Name="StockUnits" ColumnName="StockUnits" />
+                <ScalarProperty Name="Margin" ColumnName="Margin" />
+                <ScalarProperty Name="ItemCost" ColumnName="ItemCost" />
+                <ScalarProperty Name="SRP" ColumnName="SRP" />
+                <ScalarProperty Name="ListPrice" ColumnName="ListPrice" />
+                <ScalarProperty Name="Buy_Qty" ColumnName="Buy Qty" />
+                <ScalarProperty Name="Buy_Unit" ColumnName="Buy Unit" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
